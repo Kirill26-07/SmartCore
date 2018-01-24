@@ -1,17 +1,14 @@
 package serverClientInteraction.inputControllers;
 
-public class Reader<T> implements IReader<T>{
+public class Reader<T1, T2> implements IReader<T1, T2>{
 
-    private T inputResult;
+    private T2 sensorSignal;
 
     @Override
-    public void input(T externalInput) {
+    public void input(T1 deviceID, T2 externalSensorSignal) {
 
-        this.inputResult = externalInput;
+        this.sensorSignal = externalSensorSignal;
     }
 
-    public T getInputResult() {
 
-        return inputResult;
-    }
 }

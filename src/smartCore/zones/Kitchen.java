@@ -6,14 +6,41 @@ import smartCore.securityControllers.WaterController;
 
 public class Kitchen {
 
-    private final Lighting lightingControl;
-    private final GasController gasLeakageController;
-    private final WaterController waterLeakageController;
+    private final Lighting kitchenLightingController;
+    private final GasController kitchenGasLeakageController;
+    private final WaterController kitchenWaterLeakageController;
 
-    public Kitchen(Lighting lightingControl, GasController gasLeakageController, WaterController waterLeakageController) {
-        this.lightingControl = lightingControl;
-        this.gasLeakageController = gasLeakageController;
-        this.waterLeakageController = waterLeakageController;
+    public Kitchen(Lighting kitchenLightingController) {
+
+        this(kitchenLightingController, null, null);
+
+    }
+
+    private Kitchen(Lighting kitchenLightingController, GasController kitchenGasLeakageController){
+
+        this(kitchenLightingController, kitchenGasLeakageController, null);
+    }
+
+    private Kitchen(Lighting lightingController, GasController gasLeakageController, WaterController waterLeakageController){
+
+        this.kitchenLightingController = lightingController;
+        this.kitchenGasLeakageController = gasLeakageController;
+        this.kitchenWaterLeakageController = waterLeakageController;
+
+
+    }
+
+    public void switchLighting(){
+
+    }
+
+    public void switchGas(){
+
+    }
+
+    public void switchWater(){
+
     }
 
 }
+

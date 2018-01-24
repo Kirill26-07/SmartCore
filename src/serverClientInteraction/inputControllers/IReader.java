@@ -1,7 +1,7 @@
 package serverClientInteraction.inputControllers;
 
-public interface IReader<T> {
+public interface IReader<T1, T2> {
 
-    void input(T externalInput);
+    void input(T1 deviceID, T2 externalInput);
 
 }
