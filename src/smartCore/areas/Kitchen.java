@@ -4,7 +4,7 @@ import smartCore.energyControllers.Lighting;
 import smartCore.securityControllers.GasController;
 import smartCore.securityControllers.WaterController;
 
-public class Kitchen {
+public class Kitchen extends EnergyController {
 
     private final Lighting kitchenLightingController;
     private final GasController kitchenGasLeakageController;
