@@ -1,4 +1,4 @@
-package smartCore.zones;
+package smartCore.areas;
 
 import smartCore.energyControllers.Lighting;
 import smartCore.securityControllers.GasController;
