@@ -1,25 +1,35 @@
 package smartCore.settings;
 
-import smartCore.areas.EnergyController;
-import smartCore.areas.Kitchen;
+import smartCore.energyControllers.Lighting;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class DevicesAndAreas {
 
-    private final Kitchen kitchen;
-    private Map<Integer, EnergyController> devicesAndAreas = new HashMap<>();
+//    Areas areas = new DevicesAndAreas.Areas();
+//    private Map<Integer, Object> devicesAndAreas = new HashMap<>();
+//
+//
+//    public void getDevicesForAreas(int devicesID){
+//
+//        devicesAndAreas.put(devicesID, areas.getArea());
+//    }
+//
+//    public Object getArea(int devicesID){
+//
+//       return devicesAndAreas.get(devicesID);
+//    }
 
-    public DevicesAndAreas(Kitchen kitchen) {
-        this.kitchen = kitchen;
-    }
+private class Areas{
 
+//    private Kitchen kitchen = new Kitchen(new Lighting());
+//
+//    private Object getArea(){
+//
+//        return kitchen;
+//    }
 
-    public void getDevicesForAreas(int devicesID){
-
-        devicesAndAreas.put(devicesID, kitchen);
-
-    }
+}
 
 }
