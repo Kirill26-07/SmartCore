@@ -1,6 +1,7 @@
 package smartCore.areas;
 
 import smartCore.energyControllers.Lighting;
+import smartCore.securityControllers.AccessController;
 import smartCore.securityControllers.GasController;
 import smartCore.securityControllers.WaterController;
 
@@ -11,5 +12,6 @@ public class HomeArea {
     Lighting lightingConrtoler;
     GasController gasController;
     WaterController waterController;
+    AccessController accessController;
 
 }
