@@ -1,10 +1,10 @@
 package smartCore.areas;
 
-import smartCore.energyControllers.ClimateController;
-import smartCore.energyControllers.Lighting;
-import smartCore.securityControllers.AccessController;
-import smartCore.securityControllers.GasController;
-import smartCore.securityControllers.WaterController;
+import smartCore.controllers.energyControllers.ClimateController;
+import smartCore.controllers.energyControllers.Lighting;
+import smartCore.controllers.securityControllers.AccessController;
+import smartCore.controllers.securityControllers.GasController;
+import smartCore.controllers.securityControllers.WaterController;
 
 public class HomeArea {
 

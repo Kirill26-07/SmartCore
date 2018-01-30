@@ -1,14 +1,12 @@
 package smartCore.settings;
 
-import smartCore.energyControllers.Lighting;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class DevicesAndAreas {
 
-//    Areas areas = new DevicesAndAreas.Areas();
-//    private Map<Integer, Object> devicesAndAreas = new HashMap<>();
+    Areas areas = new DevicesAndAreas.Areas();
+    private Map<Integer, Object> devicesAndAreas = new HashMap<>();
 //
 //
 //    public void getDevicesForAreas(int devicesID){
@@ -23,12 +21,7 @@ public class DevicesAndAreas {
 
 private class Areas{
 
-//    private Kitchen kitchen = new Kitchen(new Lighting());
-//
-//    private Object getArea(){
-//
-//        return kitchen;
-//    }
+
 
 }
 
