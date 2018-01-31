@@ -19,7 +19,7 @@ public class User {
 
     }
 
-    public boolean userAutorization(final String userName, final String userPassword){
+    public boolean userAuthorization(final String userName, final String userPassword){
 
         return this.userName.equals(userName) && this.userPassword.equals(userPassword);
 
@@ -30,12 +30,12 @@ public class User {
         if(this.userName.equals(userName) && this.userPassword.equals(currentUserPassword)){
 
             consolePrinter.output("Please, input your new password: ");
-            this.userPassword = consoleReader.consoleInput();
+            this.userPassword = consoleReader.consoleInput().trim();
             return true;
         }
         else {
 
-            consolePrinter.output("Incorrect user name or password");
+            consolePrinter.output("Incorrect user name or password!");
             return false;
         }
 
