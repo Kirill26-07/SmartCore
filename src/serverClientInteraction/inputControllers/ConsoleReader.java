@@ -8,7 +8,7 @@ public class ConsoleReader {
 
     public String consoleInput(){
 
-        return scanner.nextLine();
+        return scanner.nextLine().trim();
 
     }
 
