@@ -16,51 +16,8 @@ public class HomeArea {
     private AccessController accessController;
     private ClimateController climateController;
 
-
-    HomeArea(String name, Lighting lightingController){
-
-        this(name, lightingController, null, null, null, null);
-
-    }
-
-    HomeArea(String name, Lighting lightingController, GasController gasController){
-
-        this(name, lightingController, gasController, null, null, null);
-
-    }
-
-    HomeArea(String name,
-             Lighting lightingController,
-             GasController gasController,
-             WaterController waterController){
-
-        this(name, lightingController, gasController, waterController, null, null);
-
-    }
-
-    HomeArea(String name,
-             Lighting lightingController,
-             GasController gasController,
-             WaterController waterController,
-             AccessController accessController){
-
-        this(name, lightingController, gasController, waterController, accessController, null);
-
-    }
-
-    HomeArea(String name,
-             Lighting lightingController,
-             GasController gasController,
-             WaterController waterController,
-             AccessController accessController,
-             ClimateController climateController){
-
+    public HomeArea(String name){
         this.name = name;
-        this.lightingController = lightingController;
-        this.gasController = gasController;
-        this.waterController = waterController;
-        this.accessController = accessController;
-        this.climateController = climateController;
     }
 
     public String getName() {
@@ -85,5 +42,25 @@ public class HomeArea {
 
     public ClimateController getClimateController() {
         return climateController;
+    }
+
+    public void setLightingController(Lighting lightingController) {
+        this.lightingController = lightingController;
+    }
+
+    public void setGasController(GasController gasController) {
+        this.gasController = gasController;
+    }
+
+    public void setWaterController(WaterController waterController) {
+        this.waterController = waterController;
+    }
+
+    public void setAccessController(AccessController accessController) {
+        this.accessController = accessController;
+    }
+
+    public void setClimateController(ClimateController climateController) {
+        this.climateController = climateController;
     }
 }
