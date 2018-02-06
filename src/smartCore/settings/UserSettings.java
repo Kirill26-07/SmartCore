@@ -1,3 +1,11 @@
+/**
+ * Данный класс предназначен для предварительной настройки системы, а также для изменения настроек
+ * во время ее использования.
+ * Основной функционал:
+ * - Первичная настройка системы, включающая создания пользователей и создание зонированных участков дома
+ * для точной их настройки под себя.
+ */
+
 package smartCore.settings;
 
 import com.sun.jdi.InvalidTypeException;
@@ -8,13 +16,15 @@ import smartCore.autorithation.User;
 import smartCore.storage.AreasStorage;
 import smartCore.storage.UserStorage;
 
-import javax.management.InvalidAttributeValueException;
 
 public class UserSettings {
 
     private ConsoleReader consoleReader = new ConsoleReader();
     private ConsolePrinter consolePrinter = new ConsolePrinter();
 
+    /**
+     * Метод запускающий сценариии настройки системы при первом ее запуске
+     */
     public void firstSatart(){
 
         createNewUser();
@@ -25,11 +35,11 @@ public class UserSettings {
         catch (InvalidTypeException e){
             consolePrinter.output("You input wrong type of area, please, try again!");
         }
-
-
-
     }
 
+    /**
+     * Метод создающий нового пользователя
+     */
     private void createNewUser(){
 
         consolePrinter.output("Input your name: ");
@@ -52,7 +62,12 @@ public class UserSettings {
         }
     }
 
-
+    /**
+     * Метод добавляет в систему зоны, которые пользователь хочет использовать в своем доме для автоматизации.
+     * Данный метод используется в том числе и для дальнейшего добавления зон в процессе использования системы.
+     *
+     * @throws InvalidTypeException - бросается при некорретном вводе пользователем типа добавляемой зоны
+     */
     private void addNewAreas() throws InvalidTypeException {
 
         StringBuilder stringBuilder = new StringBuilder();
