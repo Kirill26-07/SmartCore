@@ -22,9 +22,7 @@ public class UserSettings {
     private ConsoleReader consoleReader = new ConsoleReader();
     private ConsolePrinter consolePrinter = new ConsolePrinter();
 
-    /**
-     * Метод запускающий сценариии настройки системы при первом ее запуске
-     */
+
     public void firstSatart(){
 
         createNewUser();
@@ -33,23 +31,20 @@ public class UserSettings {
             addNewAreas();
         }
         catch (InvalidTypeException e){
-            consolePrinter.output("You input wrong type of area, please, try again!");
+            consolePrinter.output("\nYou input wrong type of area, please, try again!");
         }
     }
 
-    /**
-     * Метод создающий нового пользователя.
-     * Запрашивает имя пользователя и пароль, после чего сохраняет их в системе.
-     */
+
     private void createNewUser(){
 
-        consolePrinter.output("Input your name: ");
+        consolePrinter.output("\nInput your name: ");
         String name = consoleReader.consoleInput().trim();
 
-        consolePrinter.output("Input your password");
+        consolePrinter.output("\nInput your password");
         String password = consoleReader.consoleInput().trim();
 
-        consolePrinter.output("Confirm your password");
+        consolePrinter.output("\nConfirm your password");
         String confirmPassword = consoleReader.consoleInput().trim();
 
         if(password.equals(confirmPassword)){
@@ -58,37 +53,31 @@ public class UserSettings {
             UserStorage.saveNewUser(user_1);
         }
         else {
-            consolePrinter.output("You input wrong password, please try again");
+            consolePrinter.output("\nYou input wrong password, please try again");
             createNewUser();
         }
     }
 
-    /**
-     * Метод добавляет в систему зоны, которые пользователь хочет использовать в своем доме для автоматизации.
-     * Данный метод используется в том числе и для дальнейшего добавления зон в процессе использования системы.
-     *
-     * @throws InvalidTypeException - бросается при некорретном вводе пользователем типа добавляемой зоны
-     */
     private void addNewAreas() throws InvalidTypeException {
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        consolePrinter.output(stringBuilder.append("Select the areas you want to create.")
+        consolePrinter.output(stringBuilder.append("\nSelect the areas you want to create.")
                                             .append("\nNow we improve six types of home areas: ")
                                             .append("\n1 - Kitchen;")
                                             .append("\n2 - Bad room;")
                                             .append("\n3 - Living room;")
                                             .append("\n4 - Lobby;")
                                             .append("\n5 - Bathroom;")
-                                            .append("\n6 - Toilet.")
+                                            .append("\n6 - Toilet.\n")
                                             .append("\nInput numbers of types to create that areas:\n")
                                             .append("\nInput your types by entering, to complete input - Q!"));
 
         String userComplete = "";
 
-        while (!userComplete.equals("Q")){
+        while (!userComplete.equals("q")){
 
-        String typesOfAreas = consoleReader.consoleInput();
+        String typesOfAreas = consoleReader.consoleInput().toLowerCase();
 
             switch (typesOfAreas) {
                 case "1":
@@ -115,15 +104,12 @@ public class UserSettings {
                     HomeArea toilet = new HomeArea("Toilet");
                     AreasStorage.addHomeArea(toilet);
                     break;
-                case "Q":
-                    userComplete = "Q";
+                case "q":
+                    userComplete = "q";
                     break;
                 default:
                     throw new InvalidTypeException();
             }
-
         }
-
     }
-
 }

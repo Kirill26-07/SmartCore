@@ -1,3 +1,12 @@
+/**
+ * Класс для создания пользователя который хранит:
+ *
+ * userName - имя пользователя,
+ * userPassWord - пароль пользователя.
+ *
+ * а также реализует функционал авторизации пользователя и изменени пароля.
+ */
+
 package smartCore.autorithation;
 
 import serverClientInteraction.inputControllers.ConsoleReader;
