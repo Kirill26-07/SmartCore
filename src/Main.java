@@ -1,12 +1,16 @@
-import smartCore.settings.UserSettings;
+import smartCore.settings.ConsoleUserSettings;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        UserSettings firstUserSettings = new UserSettings();
-        firstUserSettings.firstSatart();
+       firstStart();
 
     }
 
+    private static void firstStart(){
+
+        ConsoleUserSettings.createNewUser();
+        ConsoleUserSettings.addNewAreas();
+    }
 }

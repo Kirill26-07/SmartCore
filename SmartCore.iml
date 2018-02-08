@@ -6,9 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="AWS" level="project" />
     <orderEntry type="module-library" scope="TEST">
       <library name="JUnit5.0">
         <CLASSES>
@@ -21,5 +20,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="jSerialComm-1.3.11" level="project" />
+    <orderEntry type="library" name="arduino" level="project" />
   </component>
 </module>

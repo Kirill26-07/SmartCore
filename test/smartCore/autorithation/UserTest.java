@@ -13,7 +13,7 @@ class UserTest {
     @Test
     void userAuthorization() {
 
-      assertTrue(testUser.userAuthorizationn(userName, userPassword));
+      assertTrue(testUser.userAuthorization(userName, userPassword));
 
     }
 
