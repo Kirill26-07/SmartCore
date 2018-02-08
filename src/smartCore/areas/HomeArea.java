@@ -20,6 +20,27 @@ public class HomeArea {
         this.name = name;
     }
 
+    public void setLightingController(Lighting lightingController) {
+        this.lightingController = lightingController;
+    }
+
+    public void setGasController(GasController gasController) {
+        this.gasController = gasController;
+    }
+
+    public void setWaterController(WaterController waterController) {
+        this.waterController = waterController;
+    }
+
+    public void setAccessController(AccessController accessController) {
+        this.accessController = accessController;
+    }
+
+    public void setClimateController(ClimateController climateController) {
+        this.climateController = climateController;
+    }
+
+
     public String getName() {
         return name;
     }
@@ -42,25 +63,5 @@ public class HomeArea {
 
     public ClimateController getClimateController() {
         return climateController;
-    }
-
-    public void setLightingController(Lighting lightingController) {
-        this.lightingController = lightingController;
-    }
-
-    public void setGasController(GasController gasController) {
-        this.gasController = gasController;
-    }
-
-    public void setWaterController(WaterController waterController) {
-        this.waterController = waterController;
-    }
-
-    public void setAccessController(AccessController accessController) {
-        this.accessController = accessController;
-    }
-
-    public void setClimateController(ClimateController climateController) {
-        this.climateController = climateController;
     }
 }
