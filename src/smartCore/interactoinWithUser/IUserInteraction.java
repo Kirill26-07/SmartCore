@@ -1,10 +1,12 @@
 package smartCore.interactoinWithUser;
 
-public interface IInteraction {
+public interface IUserInteraction {
 
     void firstUserGreeting();
 
     boolean isFirstStart();
+
+    void firstStartSystem();
 
     void startSystem();
 
