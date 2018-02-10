@@ -11,12 +11,12 @@ public class AreasStorage {
 
     private static ArrayList<HomeArea> homeAreas = new ArrayList<>();
 
-    public static void addHomeArea(HomeArea homeArea){
+    public static void addHomeArea(final HomeArea homeArea){
 
         homeAreas.add(homeArea);
     }
 
-    public static HomeArea getHomeArea(int areaID){
+    public static HomeArea getHomeArea(final int areaID){
 
         return homeAreas.get(areaID);
 

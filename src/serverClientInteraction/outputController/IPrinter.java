@@ -2,7 +2,7 @@ package serverClientInteraction.outputController;
 
 public interface IPrinter {
 
-    void output(String smartHomeOutput);
-    void output(StringBuilder smartHomeOutput);
+    void output(final String smartHomeOutput);
+    void output(final StringBuilder smartHomeOutput);
 
 }

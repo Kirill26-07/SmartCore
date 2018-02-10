@@ -7,4 +7,5 @@ public interface IController {
     void switchOf();
 
     boolean getControllerState();
+
 }

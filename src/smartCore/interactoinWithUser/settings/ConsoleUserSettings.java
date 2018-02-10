@@ -6,7 +6,7 @@
  * для точной их настройки под себя.
  */
 
-package smartCore.settings;
+package smartCore.interactoinWithUser.settings;
 
 import serverClientInteraction.inputControllers.ConsoleReader;
 import serverClientInteraction.outputController.ConsolePrinter;

@@ -21,7 +21,7 @@ public class User {
     private String userPassword;
 
 
-    public User(String userName, String userPassword){
+    public User(final String userName, final String userPassword){
 
         this.userName = userName;
         this.userPassword = userPassword;

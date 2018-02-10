@@ -16,27 +16,27 @@ public class HomeArea {
     private AccessController accessController;
     private ClimateController climateController;
 
-    public HomeArea(String name){
+    public HomeArea(final String name){
         this.name = name;
     }
 
-    public void setLightingController(Lighting lightingController) {
+    public void setLightingController(final Lighting lightingController) {
         this.lightingController = lightingController;
     }
 
-    public void setGasController(GasController gasController) {
+    public void setGasController(final GasController gasController) {
         this.gasController = gasController;
     }
 
-    public void setWaterController(WaterController waterController) {
+    public void setWaterController(final WaterController waterController) {
         this.waterController = waterController;
     }
 
-    public void setAccessController(AccessController accessController) {
+    public void setAccessController(final AccessController accessController) {
         this.accessController = accessController;
     }
 
-    public void setClimateController(ClimateController climateController) {
+    public void setClimateController(final ClimateController climateController) {
         this.climateController = climateController;
     }
 

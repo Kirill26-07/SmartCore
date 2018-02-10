@@ -1,6 +1,6 @@
 package serverClientInteraction.inputControllers;
 
-public class InputRouter<T1, T2> implements IRouter<T1, T2> {
+public class InputRouter<T1, T2> implements IInputRouter<T1, T2> {
 
     private T1 deviceID;
     private T2 sensorSignal;

@@ -14,24 +14,24 @@ public class UserStorage {
     private static Map<String, Integer> userID = new HashMap<>();
     private static int nextUserID;
 
-    public static void saveNewUser(User newUser){
+    public static void saveNewUser(final User newUser){
 
         String userName = newUser.getUserName();
         userStorage.add(newUser);
         assignIDToUser(userName);
     }
 
-    public static User getUser(int userID){
+    public static User getUser(final String userName){
 
-       return userStorage.get(userID);
+        return userStorage.get(userID.get(userName));
     }
 
-    public static int getUserID(String userName){
+    public static ArrayList<User> getUserStorage(){
 
-        return userID.get(userName);
+        return userStorage;
     }
 
-    private static void assignIDToUser(String userName){
+    private static void assignIDToUser(final String userName){
 
         userID.put(userName, nextUserID);
         nextUserID ++;
