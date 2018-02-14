@@ -3,11 +3,16 @@ package smartCore.controllers;
 
 import arduino.Arduino;
 
-public class ComPortController implements IController {
+public abstract class AbstractComPortController implements IController {
 
     private boolean controllerState;
+    private final int CONTROLLER_ID;
 
     private Arduino smartHome = new Arduino();
+
+    protected AbstractComPortController(int controller_id) {
+        CONTROLLER_ID = controller_id;
+    }
 
     @Override
     public void switchOn(){
@@ -23,9 +28,11 @@ public class ComPortController implements IController {
 
     @Override
     public boolean getControllerState(){
-
         return controllerState;
-
     }
 
+    @Override
+    public int getCONTROLLER_ID() {
+        return CONTROLLER_ID;
+    }
 }

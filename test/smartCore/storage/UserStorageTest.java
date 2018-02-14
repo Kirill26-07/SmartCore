@@ -21,8 +21,8 @@ class UserStorageTest {
     @Test
     void getUser() {
 
-        assertEquals(userName, UserStorage.getUser(0).getUserName());
-        assertEquals(userPassword, UserStorage.getUser(0).getUserPassword());
+        assertEquals(userName, UserStorage.getUser(userName).getUserName());
+        assertEquals(userPassword, UserStorage.getUser(userName).getUserPassword());
 
     }
 

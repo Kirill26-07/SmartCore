@@ -8,4 +8,6 @@ public interface IController {
 
     boolean getControllerState();
 
+    int getCONTROLLER_ID();
+
 }

@@ -6,9 +6,10 @@ package smartCore.storage;
 import smartCore.autorithation.User;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
-public class UserStorage {
+public class UserStorage implements Iterable<User>{
 
     private static ArrayList<User> userStorage = new ArrayList<>();
     private static Map<String, Integer> userID = new HashMap<>();
@@ -35,6 +36,11 @@ public class UserStorage {
 
         userID.put(userName, nextUserID);
         nextUserID ++;
+    }
+
+    @Override
+    public Iterator<User> iterator() {
+        return userStorage.iterator();
     }
 }
 

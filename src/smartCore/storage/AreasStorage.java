@@ -6,8 +6,9 @@ package smartCore.storage;
 
 import smartCore.areas.HomeArea;
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class AreasStorage {
+public class AreasStorage implements Iterable<HomeArea> {
 
     private static ArrayList<HomeArea> homeAreas = new ArrayList<>();
 
@@ -20,5 +21,10 @@ public class AreasStorage {
 
         return homeAreas.get(areaID);
 
+    }
+
+    @Override
+    public Iterator<HomeArea> iterator() {
+        return homeAreas.iterator();
     }
 }
