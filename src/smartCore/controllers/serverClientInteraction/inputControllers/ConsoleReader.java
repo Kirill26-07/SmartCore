@@ -1,4 +1,4 @@
-package serverClientInteraction.inputControllers;
+package smartCore.controllers.serverClientInteraction.inputControllers;
 
 import java.util.Scanner;
 

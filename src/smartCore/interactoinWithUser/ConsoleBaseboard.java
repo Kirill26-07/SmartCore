@@ -5,8 +5,8 @@
 
 package smartCore.interactoinWithUser;
 
-import serverClientInteraction.inputControllers.ConsoleReader;
-import serverClientInteraction.outputController.ConsolePrinter;
+import smartCore.controllers.serverClientInteraction.inputControllers.ConsoleReader;
+import smartCore.controllers.serverClientInteraction.outputController.ConsolePrinter;
 import smartCore.interactoinWithUser.settings.ConsoleUserSettings;
 import smartCore.storage.UserStorage;
 
@@ -15,6 +15,7 @@ public class ConsoleBaseboard implements IUserInteraction {
     private static final String SYSTEM_Name = "<<YUI>>";
     private final ConsolePrinter consolePrinter = new ConsolePrinter();
     private final ConsoleReader consoleReader = new ConsoleReader();
+
 
     @Override
     public void firstUserGreeting() {

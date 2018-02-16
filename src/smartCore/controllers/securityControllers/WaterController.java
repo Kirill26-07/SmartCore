@@ -1,8 +1,8 @@
 package smartCore.controllers.securityControllers;
 
-import smartCore.controllers.AbstractComPortController;
+import smartCore.controllers.AbstractController;
 
-public class WaterController extends AbstractComPortController {
+public class WaterController extends AbstractController {
 
     protected WaterController(int controller_id) {
         super(controller_id);

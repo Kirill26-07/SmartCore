@@ -1,8 +1,8 @@
 package smartCore.controllers.securityControllers;
 
-import smartCore.controllers.AbstractComPortController;
+import smartCore.controllers.AbstractController;
 
-public class AccessController extends AbstractComPortController{
+public class AccessController extends AbstractController {
 
     protected AccessController(int controller_id) {
         super(controller_id);

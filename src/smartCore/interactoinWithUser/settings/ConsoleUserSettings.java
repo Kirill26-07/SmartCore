@@ -8,8 +8,8 @@
 
 package smartCore.interactoinWithUser.settings;
 
-import serverClientInteraction.inputControllers.ConsoleReader;
-import serverClientInteraction.outputController.ConsolePrinter;
+import smartCore.controllers.serverClientInteraction.inputControllers.ConsoleReader;
+import smartCore.controllers.serverClientInteraction.outputController.ConsolePrinter;
 import smartCore.areas.HomeArea;
 import smartCore.autorithation.User;
 import smartCore.controllers.energyControllers.ClimateController;

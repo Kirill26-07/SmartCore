@@ -1,6 +1,9 @@
-package serverClientInteraction.inputControllers;
+package smartCore.controllers.serverClientInteraction.inputControllers;
 
-public class InputRouter<T1, T2> implements IInputRouter<T1, T2> {
+
+import smartCore.controllers.MainController;
+
+public class InputRouter<T1, T2> extends MainController implements IInputRouter<T1, T2> {
 
     private T1 deviceID;
     private T2 sensorSignal;

@@ -1,8 +1,8 @@
 package smartCore.controllers.energyControllers;
 
-import smartCore.controllers.AbstractComPortController;
+import smartCore.controllers.AbstractController;
 
-public class ClimateController extends AbstractComPortController{
+public class ClimateController extends AbstractController {
 
     protected ClimateController(int controller_id) {
         super(controller_id);

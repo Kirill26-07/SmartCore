@@ -1,8 +1,8 @@
 package smartCore.controllers.energyControllers;
 
-import smartCore.controllers.AbstractComPortController;
+import smartCore.controllers.AbstractController;
 
-public class Lighting extends AbstractComPortController {
+public class Lighting extends AbstractController {
 
 
     protected Lighting(int controller_id) {

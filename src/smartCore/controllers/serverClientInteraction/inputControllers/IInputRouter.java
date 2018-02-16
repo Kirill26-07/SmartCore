@@ -1,4 +1,4 @@
-package serverClientInteraction.inputControllers;
+package smartCore.controllers.serverClientInteraction.inputControllers;
 
 public interface IInputRouter<T1, T2> {
 

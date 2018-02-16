@@ -1,4 +1,4 @@
-package serverClientInteraction.outputController;
+package smartCore.controllers.serverClientInteraction.outputController;
 
 public class ConsolePrinter implements IPrinter {
 

@@ -9,8 +9,10 @@
 
 package smartCore.autorithation;
 
-import serverClientInteraction.inputControllers.ConsoleReader;
-import serverClientInteraction.outputController.ConsolePrinter;
+import smartCore.controllers.serverClientInteraction.inputControllers.ConsoleReader;
+import smartCore.controllers.serverClientInteraction.outputController.ConsolePrinter;
+
+import java.util.Objects;
 
 public class User {
 
@@ -56,5 +58,20 @@ public class User {
 
     public String getUserPassword() {
         return userPassword;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return Objects.equals(userName, user.userName) &&
+                Objects.equals(userPassword, user.userPassword);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(userName, userPassword);
     }
 }

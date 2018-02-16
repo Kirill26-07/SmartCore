@@ -1,8 +1,8 @@
 package smartCore.controllers.securityControllers;
 
-import smartCore.controllers.AbstractComPortController;
+import smartCore.controllers.AbstractController;
 
-public class GasController extends AbstractComPortController {
+public class GasController extends AbstractController {
 
     protected GasController(int controller_id) {
         super(controller_id);

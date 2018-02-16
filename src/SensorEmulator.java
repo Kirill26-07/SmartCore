@@ -1,6 +1,6 @@
 /** Класс-заглушка для эмуляции сигнала с внешних датчиков. Предназначен для тестирования функционала
  * без подключения физических устройств */
-import serverClientInteraction.inputControllers.InputRouter;
+import smartCore.controllers.serverClientInteraction.inputControllers.InputRouter;
 
 public class SensorEmulator {
 
