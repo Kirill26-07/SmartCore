@@ -12,17 +12,21 @@ public class MainController extends AbstractController {
 
     @Override
     public void switchOn() {
-
+        if (!controllerState){
+            controllerState = true;
+        }
     }
 
     @Override
     public void switchOf() {
-
+        if(controllerState){
+            controllerState = false;
+        }
     }
 
     public static String getDevicesID(){
 
         comPortOutputRouter.output("GET_DEVICES_ID");
-
+        return null;
     }
 }

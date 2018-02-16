@@ -4,8 +4,13 @@ import java.util.Objects;
 
 public abstract class AbstractController implements IController {
 
-    private boolean controllerState;
-    private int CONTROLLER_ID;
+    protected boolean controllerState;
+    protected int CONTROLLER_ID;
+
+    @Override
+    public void setControllerState(boolean controllerState) {
+        this.controllerState = controllerState;
+    }
 
     @Override
     public abstract void switchOn();

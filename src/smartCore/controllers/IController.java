@@ -10,4 +10,6 @@ public interface IController {
 
     int getCONTROLLER_ID();
 
+    void setControllerState(boolean controllerState);
+
 }
