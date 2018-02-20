@@ -1,4 +1,4 @@
-package serverClientInteraction.inputControllers;
+package kirill.smartCore.inputControllers;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

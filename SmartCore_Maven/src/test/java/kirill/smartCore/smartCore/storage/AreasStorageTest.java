@@ -1,9 +1,7 @@
-package smartCore.storage;
+package kirill.smartCore.smartCore.storage;
 
 import org.junit.jupiter.api.Test;
 import smartCore.areas.HomeArea;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class AreasStorageTest {
 

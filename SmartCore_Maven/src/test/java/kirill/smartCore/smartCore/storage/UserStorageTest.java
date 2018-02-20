@@ -1,10 +1,8 @@
-package smartCore.storage;
+package kirill.smartCore.smartCore.storage;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import smartCore.autorithation.User;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class UserStorageTest {
 

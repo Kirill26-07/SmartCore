@@ -1,3 +1,5 @@
+package kirill.smartCore;
+
 import smartCore.interactoinWithUser.ConsoleBaseboard;
 
 public class Main {

@@ -1,6 +1,5 @@
-package smartCore.autorithation;
+package kirill.smartCore.smartCore.autorithation;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class UserTest {
