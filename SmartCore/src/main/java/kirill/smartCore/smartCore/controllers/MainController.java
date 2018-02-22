@@ -1,14 +1,20 @@
+/**
+ * Класс реализует основные методы используемые всеми контроллерами наследующими его
+ */
+
 package kirill.smartCore.smartCore.controllers;
 
-import arduino.Arduino;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController.ComPortOutputRouter;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers.InputRouter;
 
 public class MainController extends AbstractController {
 
-    protected static final Arduino smartHomeInteraction = new Arduino();
     protected static final InputRouter<String, Double> inputRouter = new InputRouter<>();
     protected static final ComPortOutputRouter comPortOutputRouter = new ComPortOutputRouter();
+
+    public MainController(int controller_id) {
+        super(controller_id);
+    }
 
     @Override
     public void switchOn() {

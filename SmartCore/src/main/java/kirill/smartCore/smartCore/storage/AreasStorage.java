@@ -4,27 +4,28 @@
  */
 package kirill.smartCore.smartCore.storage;
 
-import kirill.smartCore.smartCore.areas.HomeArea;
+import kirill.smartCore.smartCore.areas.IHomeArea;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class AreasStorage implements Iterable<HomeArea> {
+public class AreasStorage implements Iterable<IHomeArea> {
 
-    private static ArrayList<HomeArea> homeAreas = new ArrayList<>();
+    private static ArrayList<IHomeArea> homeAreas = new ArrayList<>();
 
-    public static void addHomeArea(final HomeArea homeArea){
+    public static void addHomeArea(final IHomeArea homeArea){
 
         homeAreas.add(homeArea);
     }
 
-    public static HomeArea getHomeArea(final int areaID){
+    public static IHomeArea getHomeArea(final int areaID){
 
         return homeAreas.get(areaID);
 
     }
 
     @Override
-    public Iterator<HomeArea> iterator() {
+    public Iterator<IHomeArea> iterator() {
         return homeAreas.iterator();
     }
 }

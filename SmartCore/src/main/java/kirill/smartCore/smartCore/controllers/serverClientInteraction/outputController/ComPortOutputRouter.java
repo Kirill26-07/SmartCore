@@ -1,9 +1,9 @@
 package kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController;
 
 
-import kirill.smartCore.smartCore.controllers.MainController;
+import kirill.smartCore.smartCore.controllers.AbstractIOController;
 
-public class ComPortOutputRouter extends MainController implements IOutputRouter {
+public class ComPortOutputRouter extends AbstractIOController {
 
 
     @Override

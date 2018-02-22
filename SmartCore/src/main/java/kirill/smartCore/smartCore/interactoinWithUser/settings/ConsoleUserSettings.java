@@ -8,6 +8,7 @@
 
 package kirill.smartCore.smartCore.interactoinWithUser.settings;
 
+import kirill.smartCore.smartCore.areas.IHomeArea;
 import kirill.smartCore.smartCore.storage.UserStorage;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers.ConsoleReader;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController.ConsolePrinter;
@@ -76,32 +77,32 @@ public class ConsoleUserSettings {
 
             switch (typesOfAreas) {
                 case "1":
-                    HomeArea kitchen = new HomeArea("Kitchen");
+                    IHomeArea kitchen = new HomeArea("Kitchen");
                     addControllersForAreas(kitchen);
                     AreasStorage.addHomeArea(kitchen);
                     break;
                 case "2":
-                    HomeArea badRoom = new HomeArea("Bad room");
+                    IHomeArea badRoom = new HomeArea("Bad room");
                     addControllersForAreas(badRoom);
                     AreasStorage.addHomeArea(badRoom);
                     break;
                 case "3":
-                    HomeArea livingRoom = new HomeArea("Living room");
+                    IHomeArea livingRoom = new HomeArea("Living room");
                     addControllersForAreas(livingRoom);
                     AreasStorage.addHomeArea(livingRoom);
                     break;
                 case "4":
-                    HomeArea lobby = new HomeArea("Lobby");
+                    IHomeArea lobby = new HomeArea("Lobby");
                     addControllersForAreas(lobby);
                     AreasStorage.addHomeArea(lobby);
                     break;
                 case "5":
-                    HomeArea bathroom = new HomeArea("Bathroom");
+                    IHomeArea bathroom = new HomeArea("Bathroom");
                     addControllersForAreas(bathroom);
                     AreasStorage.addHomeArea(bathroom);
                     break;
                 case "6":
-                    HomeArea toilet = new HomeArea("Toilet");
+                    IHomeArea toilet = new HomeArea("Toilet");
                     addControllersForAreas(toilet);
                     AreasStorage.addHomeArea(toilet);
                     break;
@@ -115,7 +116,7 @@ public class ConsoleUserSettings {
         }
     }
 
-   public static void addControllersForAreas(HomeArea homeArea){
+   public static void addControllersForAreas(IHomeArea homeArea){
 
         StringBuilder stringBuilder = new StringBuilder();
 

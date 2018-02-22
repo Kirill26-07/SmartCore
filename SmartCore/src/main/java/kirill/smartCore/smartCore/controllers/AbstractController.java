@@ -1,3 +1,10 @@
+/**
+ * Абстрактный класс контроллеров, реализует общее состояние контроллера:
+ * controllerState - текущее состояние контроллера
+ * CONTROLLER_ID - уникальный адрес контроллера
+ * А также переопределяет методы equals и hashCode
+ */
+
 package kirill.smartCore.smartCore.controllers;
 
 import java.util.Objects;
@@ -5,18 +12,16 @@ import java.util.Objects;
 public abstract class AbstractController implements IController {
 
     protected boolean controllerState;
-    protected int CONTROLLER_ID;
+    protected final int CONTROLLER_ID;
+
+    protected AbstractController(int controller_id) {
+        CONTROLLER_ID = controller_id;
+    }
 
     @Override
     public void setControllerState(boolean controllerState) {
         this.controllerState = controllerState;
     }
-
-    @Override
-    public abstract void switchOn();
-
-    @Override
-    public abstract void switchOf();
 
     @Override
     public boolean getControllerState(){
@@ -41,4 +46,10 @@ public abstract class AbstractController implements IController {
 
         return Objects.hash(CONTROLLER_ID);
     }
+
+    @Override
+    public abstract void switchOn();
+
+    @Override
+    public abstract void switchOf();
 }

@@ -6,7 +6,7 @@ import kirill.smartCore.smartCore.controllers.securityControllers.GasController;
 import kirill.smartCore.smartCore.controllers.securityControllers.WaterController;
 import kirill.smartCore.smartCore.controllers.energyControllers.ClimateController;
 
-public class HomeArea {
+public class HomeArea implements IHomeArea {
 
     private String name;
 
@@ -20,47 +20,58 @@ public class HomeArea {
         this.name = name;
     }
 
+    @Override
     public void setLightingController(final Lighting lightingController) {
         this.lightingController = lightingController;
     }
 
+    @Override
     public void setGasController(final GasController gasController) {
         this.gasController = gasController;
     }
 
+    @Override
     public void setWaterController(final WaterController waterController) {
         this.waterController = waterController;
     }
 
+    @Override
     public void setAccessController(final AccessController accessController) {
         this.accessController = accessController;
     }
 
+    @Override
     public void setClimateController(final ClimateController climateController) {
         this.climateController = climateController;
     }
 
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public Lighting getLightingController() {
         return lightingController;
     }
 
+    @Override
     public GasController getGasController() {
         return gasController;
     }
 
+    @Override
     public WaterController getWaterController() {
         return waterController;
     }
 
+    @Override
     public AccessController getAccessController() {
         return accessController;
     }
 
+    @Override
     public ClimateController getClimateController() {
         return climateController;
     }
