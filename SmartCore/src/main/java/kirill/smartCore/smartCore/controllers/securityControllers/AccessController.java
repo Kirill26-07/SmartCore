@@ -4,7 +4,7 @@ import kirill.smartCore.smartCore.controllers.AbstractController;
 
 public class AccessController extends AbstractController {
 
-    public AccessController() {
+    public AccessController(int controller_id) {
         super(controller_id);
     }
 

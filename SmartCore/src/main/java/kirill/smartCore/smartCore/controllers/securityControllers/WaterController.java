@@ -3,7 +3,9 @@ package kirill.smartCore.smartCore.controllers.securityControllers;
 import kirill.smartCore.smartCore.controllers.AbstractController;
 
 public class WaterController extends AbstractController {
-    public WaterController() {
+
+
+    public WaterController(int controller_id) {
         super(controller_id);
     }
 

@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="SmartCore:jar">
+    <output-path>$PROJECT_DIR$/classes/artifacts/SmartCore_jar</output-path>
+    <root id="archive" name="SmartCore_jar.jar">
+      <element id="archive" name="SmartCore.jar">
+        <element id="module-output" name="SmartCore" />
+      </element>
+      <element id="file-copy" path="$USER_HOME$/Desktop/Java/External Libraries/arduino.jar" />
+      <element id="library" level="project" name="Maven: eu.miman.comm.arduino:arduino-serial-comm:1.0.3" />
+      <element id="library" level="project" name="Maven: com.arduinoSerial:arduinoSerial:1.0" />
+      <element id="library" level="project" name="Maven: org.rxtx:rxtx:2.1.7" />
+      <element id="library" level="project" name="Maven: com.arduino:arduino:1.0" />
+      <element id="file-copy" path="$USER_HOME$/Desktop/Java/External Libraries/jSerialComm-1.3.11.jar" />
+    </root>
+  </artifact>
+</component>

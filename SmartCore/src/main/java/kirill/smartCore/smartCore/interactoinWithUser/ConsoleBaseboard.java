@@ -5,6 +5,8 @@
 
 package kirill.smartCore.smartCore.interactoinWithUser;
 
+import kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers.InputRouter;
+import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController.ComPortOutputRouter;
 import kirill.smartCore.smartCore.interactoinWithUser.settings.ConsoleUserSettings;
 import kirill.smartCore.smartCore.storage.UserStorage;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers.ConsoleReader;
@@ -15,10 +17,16 @@ public class ConsoleBaseboard implements IUserInteraction {
     private static final String SYSTEM_Name = "<<YUI>>";
     private final ConsolePrinter consolePrinter = new ConsolePrinter();
     private final ConsoleReader consoleReader = new ConsoleReader();
-
+    private static final InputRouter<String, String> inputRouter = new InputRouter<>();
+    private static final ComPortOutputRouter comOutputRouter = new ComPortOutputRouter();
 
     @Override
-    public void firstUserGreeting() {
+    public void startSystem() throws InterruptedException {
+        inputRouter.inputSignal();
+    }
+
+    @Override
+    public void firstUserGreeting() throws InterruptedException {
 
         consolePrinter.output(String.format("Welcome to Your Smart Home system. My name is %s, and I am your home assistant", SYSTEM_Name));
 
@@ -44,17 +52,14 @@ public class ConsoleBaseboard implements IUserInteraction {
     }
 
     @Override
-    public void firstStartSystem() {
+    public void firstStartSystem() throws InterruptedException {
 
         consolePrinter.output("I see, you are not registered in this system, let's register!");
         ConsoleUserSettings.createNewUser();
         ConsoleUserSettings.addNewAreas();
+        startSystem();
     }
 
-    @Override
-    public void startSystem() {
-
-    }
 
     @Override
     public void userMenu() {

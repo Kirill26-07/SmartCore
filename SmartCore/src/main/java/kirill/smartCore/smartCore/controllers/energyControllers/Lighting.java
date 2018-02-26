@@ -4,7 +4,7 @@ import kirill.smartCore.smartCore.controllers.AbstractController;
 
 public class Lighting extends AbstractController {
 
-    public Lighting() {
+    public Lighting(int controller_id) {
         super(controller_id);
     }
 

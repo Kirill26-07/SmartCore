@@ -4,7 +4,8 @@ import kirill.smartCore.smartCore.controllers.AbstractController;
 
 public class GasController extends AbstractController {
 
-    public GasController() {
+
+    public GasController(int controller_id) {
         super(controller_id);
     }
 

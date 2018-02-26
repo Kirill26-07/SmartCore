@@ -116,7 +116,7 @@ public class ConsoleUserSettings {
         }
     }
 
-   public static void addControllersForAreas(IHomeArea homeArea){
+   public static void addControllersForAreas(final IHomeArea homeArea){
 
         StringBuilder stringBuilder = new StringBuilder();
 
@@ -136,23 +136,23 @@ public class ConsoleUserSettings {
 
             switch (controlSystems){
                 case "1":
-                    GasController gasController = new GasController();
+                    GasController gasController = new GasController(1);
                     homeArea.setGasController(gasController);
                     break;
                 case "2":
-                    Lighting lightingController = new Lighting();
+                    Lighting lightingController = new Lighting(2);
                     homeArea.setLightingController(lightingController);
                     break;
                 case "3":
-                    WaterController waterController = new WaterController();
+                    WaterController waterController = new WaterController(3);
                     homeArea.setWaterController(waterController);
                     break;
                 case "4":
-                    ClimateController climateController = new ClimateController();
+                    ClimateController climateController = new ClimateController(4);
                     homeArea.setClimateController(climateController);
                     break;
                 case "5":
-                    AccessController accessController = new AccessController();
+                    AccessController accessController = new AccessController(5);
                     homeArea.setAccessController(accessController);
                     break;
                 case "q":

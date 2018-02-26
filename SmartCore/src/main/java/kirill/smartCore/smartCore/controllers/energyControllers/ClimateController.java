@@ -4,7 +4,7 @@ import kirill.smartCore.smartCore.controllers.AbstractController;
 
 public class ClimateController extends AbstractController {
 
-    public ClimateController() {
+    public ClimateController(int controller_id) {
         super(controller_id);
     }
 

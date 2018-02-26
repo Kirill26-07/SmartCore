@@ -2,13 +2,13 @@ package kirill.smartCore.smartCore.interactoinWithUser;
 
 public interface IUserInteraction {
 
-    void firstUserGreeting();
+    void firstUserGreeting() throws InterruptedException;
 
     boolean isFirstStart();
 
-    void firstStartSystem();
+    void firstStartSystem() throws InterruptedException;
 
-    void startSystem();
+    void startSystem() throws InterruptedException;
 
     void userMenu();
 
