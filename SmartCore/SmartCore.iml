@@ -39,6 +39,6 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: eu.miman.comm.arduino:arduino-serial-comm:1.0.3" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.rxtx:rxtx:2.1.7" level="project" />
     <orderEntry type="library" name="Maven: com.arduino:arduino:1.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.arduinoSerial:arduinoSerial:1.0" level="project" />
+    <orderEntry type="library" name="Maven: com.arduinoSerial:arduinoSerial:1.0" level="project" />
   </component>
 </module>

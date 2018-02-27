@@ -77,32 +77,32 @@ public class ConsoleUserSettings {
 
             switch (typesOfAreas) {
                 case "1":
-                    IHomeArea kitchen = new HomeArea("Kitchen");
+                    IHomeArea kitchen = new HomeArea(AreasStorage.KITCHEN_AREA_NAME, AreasStorage.KITCHEN_AREA_ID);
                     addControllersForAreas(kitchen);
                     AreasStorage.addHomeArea(kitchen);
                     break;
                 case "2":
-                    IHomeArea badRoom = new HomeArea("Bad room");
+                    IHomeArea badRoom = new HomeArea(AreasStorage.BAD_ROOM_AREA_NAME, AreasStorage.BAD_ROOM_AREA_ID);
                     addControllersForAreas(badRoom);
                     AreasStorage.addHomeArea(badRoom);
                     break;
                 case "3":
-                    IHomeArea livingRoom = new HomeArea("Living room");
+                    IHomeArea livingRoom = new HomeArea(AreasStorage.LIVING_ROOM_AREA_NAME, AreasStorage.LIVING_ROOM_AREA_ID);
                     addControllersForAreas(livingRoom);
                     AreasStorage.addHomeArea(livingRoom);
                     break;
                 case "4":
-                    IHomeArea lobby = new HomeArea("Lobby");
+                    IHomeArea lobby = new HomeArea(AreasStorage.LOBBY_AREA_NAME, AreasStorage.LOBBY_AREA_ID);
                     addControllersForAreas(lobby);
                     AreasStorage.addHomeArea(lobby);
                     break;
                 case "5":
-                    IHomeArea bathroom = new HomeArea("Bathroom");
+                    IHomeArea bathroom = new HomeArea(AreasStorage.BATHROOM_AREA_NAME, AreasStorage.BATHROOM_AREA_ID);
                     addControllersForAreas(bathroom);
                     AreasStorage.addHomeArea(bathroom);
                     break;
                 case "6":
-                    IHomeArea toilet = new HomeArea("Toilet");
+                    IHomeArea toilet = new HomeArea(AreasStorage.TOILET_AREA_NAME, AreasStorage.TOILET_AREA_ID);
                     addControllersForAreas(toilet);
                     AreasStorage.addHomeArea(toilet);
                     break;
