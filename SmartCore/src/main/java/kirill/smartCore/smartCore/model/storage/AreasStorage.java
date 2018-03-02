@@ -2,9 +2,9 @@
  * Класс предназначен для хранения автоматизированных зон, созданных пользователем при первом старте и
  * идентификаторов для получения хранимых зон. Также класс хранит name и ID зон в открытом доступе
  */
-package kirill.smartCore.smartCore.storage;
+package kirill.smartCore.smartCore.model.storage;
 
-import kirill.smartCore.smartCore.areas.IHomeArea;
+import kirill.smartCore.smartCore.model.IHomeArea;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -21,7 +21,7 @@ public class AreasStorage implements Iterable<IHomeArea> {
     public static final int KITCHEN_AREA_ID = 0;
     public static final int BAD_ROOM_AREA_ID = 1;
     public static final int LIVING_ROOM_AREA_ID = 2;
-    public static final int LOBBY_AREA_ID = 2;
+    public static final int LOBBY_AREA_ID = 3;
     public static final int BATHROOM_AREA_ID = 4;
     public static final int TOILET_AREA_ID = 5;
 

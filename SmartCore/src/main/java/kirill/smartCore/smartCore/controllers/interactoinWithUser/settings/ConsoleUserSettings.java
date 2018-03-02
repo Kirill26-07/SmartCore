@@ -6,20 +6,20 @@
  * для точной их настройки под себя.
  */
 
-package kirill.smartCore.smartCore.interactoinWithUser.settings;
+package kirill.smartCore.smartCore.controllers.interactoinWithUser.settings;
 
-import kirill.smartCore.smartCore.areas.IHomeArea;
-import kirill.smartCore.smartCore.storage.UserStorage;
+import kirill.smartCore.smartCore.model.IHomeArea;
+import kirill.smartCore.smartCore.model.storage.UserStorage;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers.ConsoleReader;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController.ConsolePrinter;
-import kirill.smartCore.smartCore.areas.HomeArea;
-import kirill.smartCore.smartCore.autorithation.User;
+import kirill.smartCore.smartCore.model.HomeArea;
+import kirill.smartCore.smartCore.model.User;
 import kirill.smartCore.smartCore.controllers.energyControllers.ClimateController;
 import kirill.smartCore.smartCore.controllers.energyControllers.Lighting;
 import kirill.smartCore.smartCore.controllers.securityControllers.AccessController;
 import kirill.smartCore.smartCore.controllers.securityControllers.GasController;
 import kirill.smartCore.smartCore.controllers.securityControllers.WaterController;
-import kirill.smartCore.smartCore.storage.AreasStorage;
+import kirill.smartCore.smartCore.model.storage.AreasStorage;
 
 
 public class ConsoleUserSettings {
@@ -58,15 +58,15 @@ public class ConsoleUserSettings {
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        ConsoleUserSettings.consolePrinter.output(stringBuilder.append("\nSelect the areas you want to create.")
-                .append("\nNow we improve six types of home areas: ")
+        ConsoleUserSettings.consolePrinter.output(stringBuilder.append("\nSelect the model you want to create.")
+                .append("\nNow we improve six types of home model: ")
                 .append("\n1 - Kitchen;")
                 .append("\n2 - Bad room;")
                 .append("\n3 - Living room;")
                 .append("\n4 - Lobby;")
                 .append("\n5 - Bathroom;")
                 .append("\n6 - Toilet.\n")
-                .append("\nInput numbers of types to create that areas:\n")
+                .append("\nInput numbers of types to create that model:\n")
                 .append("\nInput your types by entering, to complete input - Q!"));
 
         String userComplete = "";

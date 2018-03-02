@@ -7,7 +7,7 @@
  * A также реализует функционал авторизации пользователя и изменени пароля.
  */
 
-package kirill.smartCore.smartCore.autorithation;
+package kirill.smartCore.smartCore.model;
 
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers.ConsoleReader;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController.ConsolePrinter;
@@ -27,12 +27,6 @@ public class User {
 
         this.userName = userName;
         this.userPassword = userPassword;
-
-    }
-
-    public boolean userAuthorization(final String userName, final String userPassword){
-
-        return this.userName.equals(userName) && this.userPassword.equals(userPassword);
 
     }
 

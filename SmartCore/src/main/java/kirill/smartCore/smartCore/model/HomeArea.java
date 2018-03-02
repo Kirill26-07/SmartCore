@@ -1,4 +1,4 @@
-package kirill.smartCore.smartCore.areas;
+package kirill.smartCore.smartCore.model;
 
 import kirill.smartCore.smartCore.controllers.energyControllers.Lighting;
 import kirill.smartCore.smartCore.controllers.securityControllers.AccessController;
@@ -17,9 +17,9 @@ public class HomeArea implements IHomeArea {
     private AccessController accessController;
     private ClimateController climateController;
 
-    public HomeArea(final String name, int ID){
-        this.name = name;
-        this.ID = ID;
+    public HomeArea(final String areaName, int areaID){
+        this.name = areaName;
+        this.ID = areaID;
     }
 
     @Override

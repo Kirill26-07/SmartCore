@@ -1,9 +1,9 @@
 /**
  * Класс хранит созданных пользователей, присваевает им ID и отдаетпользовател по запросу
  */
-package kirill.smartCore.smartCore.storage;
+package kirill.smartCore.smartCore.model.storage;
 
-import kirill.smartCore.smartCore.autorithation.User;
+import kirill.smartCore.smartCore.model.User;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;

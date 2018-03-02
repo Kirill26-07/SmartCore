@@ -1,4 +1,4 @@
-package kirill.smartCore.smartCore.areas;
+package kirill.smartCore.smartCore.model;
 
 import kirill.smartCore.smartCore.controllers.energyControllers.ClimateController;
 import kirill.smartCore.smartCore.controllers.energyControllers.Lighting;

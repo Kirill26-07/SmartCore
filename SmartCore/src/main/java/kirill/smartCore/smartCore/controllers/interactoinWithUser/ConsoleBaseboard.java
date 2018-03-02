@@ -3,12 +3,13 @@
  * которое открывается при запуске системы.
  */
 
-package kirill.smartCore.smartCore.interactoinWithUser;
+package kirill.smartCore.smartCore.controllers.interactoinWithUser;
 
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers.InputRouter;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController.ComPortOutputRouter;
-import kirill.smartCore.smartCore.interactoinWithUser.settings.ConsoleUserSettings;
-import kirill.smartCore.smartCore.storage.UserStorage;
+import kirill.smartCore.smartCore.controllers.interactoinWithUser.settings.ConsoleUserSettings;
+import kirill.smartCore.smartCore.model.User;
+import kirill.smartCore.smartCore.model.storage.UserStorage;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers.ConsoleReader;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController.ConsolePrinter;
 
@@ -74,6 +75,8 @@ public class ConsoleBaseboard implements IUserInteraction {
         consolePrinter.output("Please, input your password name:");
         String password = consoleReader.consoleInput();
 
-        return UserStorage.getUser(userName).userAuthorization(userName, password);
+        User userAuthorization = UserStorage.getUser(userName);
+
+        return userAuthorization.getUserName().equals(userName) && userAuthorization.getUserPassword().equals(password);
     }
 }

@@ -1,4 +1,4 @@
-package kirill.smartCore.smartCore.interactoinWithUser;
+package kirill.smartCore.smartCore.controllers.interactoinWithUser;
 
 public interface IUserInteraction {
 

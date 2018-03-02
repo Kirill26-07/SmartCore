@@ -1,4 +1,4 @@
-package kirill.smartCore.inputControllers;
+package kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers;
 
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers.InputRouter;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,7 @@
-package kirill.smartCore.smartCore.storage;
+package kirill.smartCore.smartCore.model.storage;
 
-import kirill.smartCore.smartCore.autorithation.User;
+import kirill.smartCore.smartCore.model.User;
+import kirill.smartCore.smartCore.model.storage.UserStorage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
