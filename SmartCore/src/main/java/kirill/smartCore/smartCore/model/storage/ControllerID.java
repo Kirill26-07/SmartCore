@@ -1,3 +1,7 @@
+/**
+ * Класс хранит ID всех созданных в системе контроллеров
+ */
+
 package kirill.smartCore.smartCore.model.storage;
 
 import java.util.HashMap;

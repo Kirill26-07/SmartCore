@@ -1,3 +1,6 @@
+/**
+ * Класс-контроллер, реализует функции по контролю и управлению системой базопасности
+ */
 package kirill.smartCore.smartCore.controllers.securityControllers;
 
 import kirill.smartCore.smartCore.controllers.AbstractController;

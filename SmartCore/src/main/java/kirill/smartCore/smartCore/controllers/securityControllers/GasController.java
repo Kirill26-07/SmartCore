@@ -1,3 +1,6 @@
+/**
+ * Класс-контроллер, реализует функции по контролю и управлению газовым оборудованием
+ */
 package kirill.smartCore.smartCore.controllers.securityControllers;
 
 import kirill.smartCore.smartCore.controllers.AbstractController;

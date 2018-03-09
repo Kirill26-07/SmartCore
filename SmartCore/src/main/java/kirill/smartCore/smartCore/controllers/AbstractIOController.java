@@ -1,3 +1,8 @@
+/**
+ * Абстрактный клас для контроллеров отвечающих за Input/Output данных.
+ * Включает в себя базовые поля и классы
+ */
+
 package kirill.smartCore.smartCore.controllers;
 
 import com.arduinoSerialJ.Arduino;

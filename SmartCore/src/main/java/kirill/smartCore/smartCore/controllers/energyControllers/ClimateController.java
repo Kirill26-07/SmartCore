@@ -1,3 +1,6 @@
+/**
+ * Класс-контроллер, реализует функции по контролю и управлению климатом
+ */
 package kirill.smartCore.smartCore.controllers.energyControllers;
 
 import kirill.smartCore.smartCore.controllers.AbstractController;

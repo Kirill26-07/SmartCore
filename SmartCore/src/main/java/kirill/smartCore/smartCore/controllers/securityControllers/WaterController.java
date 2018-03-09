@@ -1,3 +1,7 @@
+/**
+ * Класс-контроллер, реализует функции по контролю и управлению водными системами
+ */
+
 package kirill.smartCore.smartCore.controllers.securityControllers;
 
 import kirill.smartCore.smartCore.controllers.AbstractController;

@@ -1,3 +1,6 @@
+/**
+ * Main класс для запуска приложения
+ */
 package kirill.smartCore;
 
 import kirill.smartCore.smartCore.controllers.interactoinWithUser.ConsoleBaseboard;

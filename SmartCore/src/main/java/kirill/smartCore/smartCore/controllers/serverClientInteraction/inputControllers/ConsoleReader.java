@@ -1,3 +1,7 @@
+/**
+ * Класс реализующий Input данный из консоли
+ */
+
 package kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers;
 
 import java.util.Scanner;

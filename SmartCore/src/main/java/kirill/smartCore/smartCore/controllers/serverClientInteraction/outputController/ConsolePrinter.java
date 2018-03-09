@@ -1,3 +1,6 @@
+/**
+ * Класс реализующий Output данных в консоль
+ */
 package kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController;
 
 public class ConsolePrinter implements IPrinter {

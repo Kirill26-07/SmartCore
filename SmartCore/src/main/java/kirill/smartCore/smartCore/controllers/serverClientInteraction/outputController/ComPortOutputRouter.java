@@ -1,5 +1,8 @@
-package kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController;
+/**
+ * Класс реализующий Output данных через Serial port
+ */
 
+package kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController;
 
 import kirill.smartCore.smartCore.controllers.AbstractIOController;
 

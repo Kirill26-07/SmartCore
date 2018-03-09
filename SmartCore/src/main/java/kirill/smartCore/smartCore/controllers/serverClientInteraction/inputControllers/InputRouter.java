@@ -1,3 +1,7 @@
+/**
+ * Класс реализующим Input and processing данных из Serial port
+ */
+
 package kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers;
 
 import kirill.smartCore.smartCore.controllers.AbstractIOController;
