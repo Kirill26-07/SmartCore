@@ -2,10 +2,10 @@ package kirill.smartCore.smartCore.controllers.serverClientInteraction.inputCont
 
 import kirill.smartCore.smartCore.controllers.AbstractIOController;
 
-public class InputRouter<T1, T2>  extends AbstractIOController {
+public class InputRouter<T>  extends AbstractIOController {
 
-    private T1 deviceID;
-    private T2 sensorSignal;
+    private T deviceID;
+    private T sensorSignal;
 
     public void inputSignal() throws InterruptedException {
         boolean connected = smartHome.openConnection();
@@ -13,16 +13,18 @@ public class InputRouter<T1, T2>  extends AbstractIOController {
         Thread.sleep(1000);
 
         while (connected){
-            sensorSignal = (T2) smartHome.serialRead(-1);
-            System.out.println(sensorSignal);
+
+            String[] inputData = smartHome.arraySerialRead(1);
+            deviceID = (T) inputData[1];
+            sensorSignal = (T) inputData[2];
         }
     }
 
-    public T1 getDeviceID() {
+    public T getDeviceID() {
         return deviceID;
     }
 
-    public T2 getSensorSignal() {
+    public T getSensorSignal() {
         return sensorSignal;
     }
 

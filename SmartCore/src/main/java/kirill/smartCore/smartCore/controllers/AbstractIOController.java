@@ -1,13 +1,13 @@
 package kirill.smartCore.smartCore.controllers;
 
-import arduino.Arduino;
+import com.arduinoSerialJ.Arduino;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers.IInputRouter;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController.IOutputRouter;
 
 
 public abstract class AbstractIOController implements IInputRouter, IOutputRouter{
 
-    private static final String SERIAL_PORT = "/dev/cu.usbmodem1421";
+    private static final String SERIAL_PORT = "/dev/cu.usbmodem1411";
     private static final int SERIAL_SPEED = 9600;
 
     protected static Arduino smartHome = new Arduino(SERIAL_PORT, SERIAL_SPEED);

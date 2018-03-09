@@ -21,6 +21,18 @@ public class ControllerID {
             else if(controllersID[i].startsWith("1")){
                 controllerStorage.put(controllersID[i], AreasStorage.BAD_ROOM_AREA_NAME);
             }
+            else if(controllersID[i].startsWith("2")){
+                controllerStorage.put(controllersID[i], AreasStorage.LIVING_ROOM_AREA_NAME);
+            }
+            else if(controllersID[i].startsWith("3")){
+                controllerStorage.put(controllersID[i], AreasStorage.LOBBY_AREA_NAME);
+            }
+            else if(controllersID[i].startsWith("4")){
+                controllerStorage.put(controllersID[i], AreasStorage.BATHROOM_AREA_NAME);
+            }
+            else if(controllersID[i].startsWith("5")){
+                controllerStorage.put(controllersID[i], AreasStorage.TOILET_AREA_NAME);
+            }
         }
 
     }
