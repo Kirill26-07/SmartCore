@@ -9,6 +9,7 @@
 package kirill.smartCore.smartCore.controllers.interactoinWithUser.settings;
 
 import kirill.smartCore.smartCore.model.IHomeArea;
+import kirill.smartCore.smartCore.model.storage.ControllerID;
 import kirill.smartCore.smartCore.model.storage.UserStorage;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers.ConsoleReader;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController.ConsolePrinter;
@@ -136,23 +137,23 @@ public class ConsoleUserSettings {
 
             switch (controlSystems){
                 case "1":
-                    GasController gasController = new GasController(1);
+                    GasController gasController = new GasController(ControllerID.GASCONTROLLER_ID);
                     homeArea.setGasController(gasController);
                     break;
                 case "2":
-                    Lighting lightingController = new Lighting(2);
+                    Lighting lightingController = new Lighting(ControllerID.LIGHTING_ID);
                     homeArea.setLightingController(lightingController);
                     break;
                 case "3":
-                    WaterController waterController = new WaterController(3);
+                    WaterController waterController = new WaterController(ControllerID.WATERCONRTOLLER_ID);
                     homeArea.setWaterController(waterController);
                     break;
                 case "4":
-                    ClimateController climateController = new ClimateController(4);
+                    ClimateController climateController = new ClimateController(ControllerID.CLIMATECONTROLLER_ID);
                     homeArea.setClimateController(climateController);
                     break;
                 case "5":
-                    AccessController accessController = new AccessController(5);
+                    AccessController accessController = new AccessController(ControllerID.ACCESSCONTROLLER_ID);
                     homeArea.setAccessController(accessController);
                     break;
                 case "q":
