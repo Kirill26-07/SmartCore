@@ -1,46 +1,31 @@
 /**
- * Класс хранит созданных пользователей, присваевает им ID и отдаетпользовател по запросу
+ * Класс хранит созданных пользователей, присваевает им ID и отдает пользователя по запросу.
+ * User ID - в качестве данного параметра используется ися пользователя под которым он регистрируется в системе.
+ * Имя пользователя должно быть уникальным.
  */
 package kirill.smartCore.smartCore.model.storage;
 
 import kirill.smartCore.smartCore.model.User;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
-public class UserStorage implements Iterable<User>{
+public class UserStorage {
 
-    private static ArrayList<User> userStorage = new ArrayList<>();
-    private static Map<String, Integer> userID = new HashMap<>();
-    private static int nextUserID;
+    private static Map<String, User> userStorage = new HashMap<>();
 
-    public static void saveNewUser(final User newUser){
+    public static void saveNewUser(final User newUser) {
 
         String userName = newUser.getUserName();
-        userStorage.add(newUser);
-        assignIDToUser(userName);
+        userStorage.put(userName, newUser);
     }
 
-    public static User getUser(final String userName){
+    public static User getUser(final String userName) {
 
-        return userStorage.get(userID.get(userName));
+        return userStorage.get(userName);
     }
 
-    public static ArrayList<User> getUserStorage(){
+    public static Map<String, User> getUserStorage() {
 
         return userStorage;
     }
-
-    private static void assignIDToUser(final String userName){
-
-        userID.put(userName, nextUserID);
-        nextUserID ++;
-    }
-
-    @Override
-    public Iterator<User> iterator() {
-        return userStorage.iterator();
-    }
 }
-
