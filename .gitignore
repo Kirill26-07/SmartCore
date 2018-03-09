@@ -1,0 +1,4 @@
+#Ignore next files:
+*target/
+*.idea/
+*classes
