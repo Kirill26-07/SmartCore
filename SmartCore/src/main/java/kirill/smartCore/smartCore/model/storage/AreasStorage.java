@@ -6,10 +6,10 @@ package kirill.smartCore.smartCore.model.storage;
 
 import kirill.smartCore.smartCore.model.IHomeArea;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
+import java.util.Map;
 
-public class AreasStorage implements Iterable<IHomeArea> {
+public class AreasStorage {
 
     public static final String KITCHEN_AREA_NAME = "Kitchen";
     public static final String BAD_ROOM_AREA_NAME = "Bad room";
@@ -18,28 +18,18 @@ public class AreasStorage implements Iterable<IHomeArea> {
     public static final String BATHROOM_AREA_NAME = "Bathroom";
     public static final String TOILET_AREA_NAME = "Toilet";
 
-    public static final int KITCHEN_AREA_ID = 0;
-    public static final int BAD_ROOM_AREA_ID = 1;
-    public static final int LIVING_ROOM_AREA_ID = 2;
-    public static final int LOBBY_AREA_ID = 3;
-    public static final int BATHROOM_AREA_ID = 4;
-    public static final int TOILET_AREA_ID = 5;
+    private static Map<String, IHomeArea> homeAreas = new HashMap<>();
 
-    private static ArrayList<IHomeArea> homeAreas = new ArrayList<>();
+    public static void addHomeArea(final IHomeArea homeArea) {
 
-    public static void addHomeArea(final IHomeArea homeArea){
+        String homeAreaName = homeArea.getName();
 
-        homeAreas.add(homeArea);
+        homeAreas.put(homeAreaName, homeArea);
     }
 
-    public static IHomeArea getHomeArea(final int areaID){
+    public static IHomeArea getHomeArea(final String homeAreaName) {
 
-        return homeAreas.get(areaID);
+        return homeAreas.get(homeAreaName);
 
-    }
-
-    @Override
-    public Iterator<IHomeArea> iterator() {
-        return homeAreas.iterator();
     }
 }

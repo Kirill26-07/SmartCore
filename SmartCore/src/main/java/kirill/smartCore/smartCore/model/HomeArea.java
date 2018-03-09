@@ -9,7 +9,6 @@ import kirill.smartCore.smartCore.controllers.energyControllers.ClimateControlle
 public class HomeArea implements IHomeArea {
 
     private String name;
-    private final int ID;
 
     private Lighting lightingController;
     private GasController gasController;
@@ -17,9 +16,8 @@ public class HomeArea implements IHomeArea {
     private AccessController accessController;
     private ClimateController climateController;
 
-    public HomeArea(final String areaName, int areaID){
+    public HomeArea(final String areaName){
         this.name = areaName;
-        this.ID = areaID;
     }
 
     @Override
