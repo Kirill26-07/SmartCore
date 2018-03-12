@@ -24,19 +24,19 @@ public class ControllerID {
 
     private void setControllerStorage(final String[] controllersID){
 
-        for (String aControllersID : controllersID) {
-            if (aControllersID.startsWith("0")) {
-                controllerStorage.put(aControllersID, AreasStorage.KITCHEN_AREA_NAME);
-            } else if (aControllersID.startsWith("1")) {
-                controllerStorage.put(aControllersID, AreasStorage.BAD_ROOM_AREA_NAME);
-            } else if (aControllersID.startsWith("2")) {
-                controllerStorage.put(aControllersID, AreasStorage.LIVING_ROOM_AREA_NAME);
-            } else if (aControllersID.startsWith("3")) {
-                controllerStorage.put(aControllersID, AreasStorage.LOBBY_AREA_NAME);
-            } else if (aControllersID.startsWith("4")) {
-                controllerStorage.put(aControllersID, AreasStorage.BATHROOM_AREA_NAME);
-            } else if (aControllersID.startsWith("5")) {
-                controllerStorage.put(aControllersID, AreasStorage.TOILET_AREA_NAME);
+        for (String singleID : controllersID) {
+            if (singleID.startsWith("0")) {
+                controllerStorage.put(singleID, AreasStorage.KITCHEN_AREA_NAME);
+            } else if (singleID.startsWith("1")) {
+                controllerStorage.put(singleID, AreasStorage.BAD_ROOM_AREA_NAME);
+            } else if (singleID.startsWith("2")) {
+                controllerStorage.put(singleID, AreasStorage.LIVING_ROOM_AREA_NAME);
+            } else if (singleID.startsWith("3")) {
+                controllerStorage.put(singleID, AreasStorage.LOBBY_AREA_NAME);
+            } else if (singleID.startsWith("4")) {
+                controllerStorage.put(singleID, AreasStorage.BATHROOM_AREA_NAME);
+            } else if (singleID.startsWith("5")) {
+                controllerStorage.put(singleID, AreasStorage.TOILET_AREA_NAME);
             }
         }
     }

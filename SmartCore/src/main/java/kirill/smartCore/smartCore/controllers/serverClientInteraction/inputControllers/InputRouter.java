@@ -1,15 +1,16 @@
 /**
- * Класс реализующим Input and processing данных из Serial port
+ * Класс реализующим Input and processing data from Serial port
  */
 
 package kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers;
 
 import kirill.smartCore.smartCore.controllers.AbstractIOController;
 
-public class InputRouter<T>  extends AbstractIOController {
+public class InputRouter extends AbstractIOController {
 
-    private T deviceID;
-    private T sensorSignal;
+    private byte homeAreaID;
+    private byte deviceID;
+    private byte sensorSignal;
 
     public void inputSignal() throws InterruptedException {
         boolean connected = smartHome.openConnection();
@@ -18,18 +19,16 @@ public class InputRouter<T>  extends AbstractIOController {
 
         while (connected){
 
-            String[] inputData = smartHome.arraySerialRead(1);
-            deviceID = (T) inputData[1];
-            sensorSignal = (T) inputData[2];
+            byte[] inputData = smartHome.bytesSerialRead(2);
+            homeAreaID = inputData[0];
+            deviceID = inputData[1];
+            sensorSignal = inputData[2];
+            inputDataRouting();
         }
     }
 
-    public T getDeviceID() {
-        return deviceID;
+    private void inputDataRouting(){
+        System.out.printf("\nhomeAreaID - %d;\ndeviceID - %d;\nsensorSignal - %d.\n", homeAreaID, deviceID, sensorSignal);
     }
-
-    public T getSensorSignal() {
-        return sensorSignal;
-    }
-
 }
+

@@ -18,7 +18,7 @@ public class ConsoleBaseboard implements IUserInteraction {
     private static final String SYSTEM_Name = "<<YUI>>";
     private final ConsolePrinter consolePrinter = new ConsolePrinter();
     private final ConsoleReader consoleReader = new ConsoleReader();
-    private static final InputRouter<String> inputRouter = new InputRouter<>();
+    private static final InputRouter inputRouter = new InputRouter();
     private static final ComPortOutputRouter comOutputRouter = new ComPortOutputRouter();
 
     @Override

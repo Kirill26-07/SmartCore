@@ -9,7 +9,7 @@ import kirill.smartCore.smartCore.controllers.serverClientInteraction.inputContr
 
 public class MainController extends AbstractController {
 
-    protected static final InputRouter<String> inputRouter = new InputRouter<>();
+    protected static final InputRouter inputRouter = new InputRouter();
     protected static final ComPortOutputRouter comPortOutputRouter = new ComPortOutputRouter();
 
     public MainController(int controller_id) {
