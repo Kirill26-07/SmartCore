@@ -8,6 +8,8 @@ import kirill.smartCore.smartCore.controllers.securityControllers.WaterControlle
 
 public interface IHomeArea {
 
+    void inputData(byte controllerID, byte inputData);
+
     void setLightingController(Lighting lightingController);
 
     void setGasController(GasController gasController);

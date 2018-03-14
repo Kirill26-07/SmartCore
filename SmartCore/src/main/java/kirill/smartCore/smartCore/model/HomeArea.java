@@ -26,6 +26,12 @@ public class HomeArea implements IHomeArea {
         this.name = areaName;
     }
 
+
+    @Override
+    public void inputData(byte controllerID, byte inputData) {
+
+    }
+
     @Override
     public void setLightingController(final Lighting lightingController) {
         this.lightingController = lightingController;
