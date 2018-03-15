@@ -5,9 +5,14 @@
 package kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers;
 
 import kirill.smartCore.smartCore.controllers.AbstractIOController;
+import kirill.smartCore.smartCore.exceptions.WrongInputDataException;
 import kirill.smartCore.smartCore.model.storage.AreasStorage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class InputRouter extends AbstractIOController {
+
+    private static final Logger logging = LogManager.getLogger(InputRouter.class.getName());
 
     private byte homeAreaID;
     private byte deviceID;
@@ -18,7 +23,7 @@ public class InputRouter extends AbstractIOController {
         System.out.println("Connection success: " + connected);
         Thread.sleep(1000);
 
-        while (connected){
+        while (connected) {
 
             byte[] inputData = smartHome.bytesSerialRead(2);
             homeAreaID = inputData[0];
@@ -28,32 +33,41 @@ public class InputRouter extends AbstractIOController {
         }
     }
 
-    private void inputDataRouting(){
-        System.out.printf("\nhomeAreaID - %d;\ndeviceID - %d;\nsensorSignal - %d.\n", homeAreaID, deviceID, sensorSignal);
-        switch (homeAreaID){
+    private void inputDataRouting() {
+
+        String area = "";
+        try {
+            area = areaForAreaID(homeAreaID);
+        }catch (WrongInputDataException e){
+            logging.error("Wrong input value!");
+        }
+
+        AreasStorage.getHomeArea(area).inputData(deviceID, sensorSignal);
+    }
+
+    private String areaForAreaID(byte id) throws WrongInputDataException {
+        switch (homeAreaID) {
             case 0: {
-                AreasStorage.getHomeArea(AreasStorage.KITCHEN_AREA_NAME).inputData(deviceID, sensorSignal);
-                break;
+                return AreasStorage.KITCHEN_AREA_NAME;
             }
             case 1: {
-                AreasStorage.getHomeArea(AreasStorage.BAD_ROOM_AREA_NAME).inputData(deviceID, sensorSignal);
-                break;
+                return AreasStorage.BAD_ROOM_AREA_NAME;
             }
             case 2: {
-                AreasStorage.getHomeArea(AreasStorage.LIVING_ROOM_AREA_NAME).inputData(deviceID, sensorSignal);
-                break;
+                return AreasStorage.LIVING_ROOM_AREA_NAME;
             }
             case 3: {
-                AreasStorage.getHomeArea(AreasStorage.LOBBY_AREA_NAME).inputData(deviceID, sensorSignal);
-                break;
+                return AreasStorage.LOBBY_AREA_NAME;
             }
             case 4: {
-                AreasStorage.getHomeArea(AreasStorage.BATHROOM_AREA_NAME).inputData(deviceID, sensorSignal);
-                break;
+                return AreasStorage.BATHROOM_AREA_NAME;
             }
             case 5: {
-                AreasStorage.getHomeArea(AreasStorage.TOILET_AREA_NAME).inputData(deviceID, sensorSignal);
-                break;
+                return AreasStorage.TOILET_AREA_NAME;
+            }
+            default: {
+                System.out.println("Wrong input value!");
+                throw new WrongInputDataException();
             }
         }
     }
