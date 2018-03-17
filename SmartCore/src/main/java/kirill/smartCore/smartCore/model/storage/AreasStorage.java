@@ -24,12 +24,16 @@ public class AreasStorage {
 
         String homeAreaName = homeArea.getName();
 
-        homeAreas.put(homeAreaName, homeArea);
+        if(homeAreas.containsKey(homeAreaName)){
+            System.out.println("This area has already been created");
+        }
+        else {
+            homeAreas.put(homeAreaName, homeArea);
+        }
     }
 
     public static IHomeArea getHomeArea(final String homeAreaName) {
 
         return homeAreas.get(homeAreaName);
-
     }
 }

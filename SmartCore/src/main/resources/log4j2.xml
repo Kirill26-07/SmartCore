@@ -17,7 +17,7 @@
             <DefaultRolloverStrategy max = "20" />
         </RollingFile>
 
-        <RollingFile name = 'fileLogger' fileName = '${basePath}/class.log'
+        <RollingFile name = 'fileLogger' fileName = 'target/logging/logging.log'
                      filePattern="${basePath}/$${date:yyyy-MM}/class-%d{yyyy-MM-dd}-%i.log">
             <PatternLayout>
                 <pattern>

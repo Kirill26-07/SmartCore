@@ -8,8 +8,10 @@
 
 package kirill.smartCore.smartCore.controllers.interactoinWithUser.settings;
 
+import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController.ComPortOutputRouter;
 import kirill.smartCore.smartCore.model.IHomeArea;
 import kirill.smartCore.smartCore.model.storage.ControllerID;
+import kirill.smartCore.smartCore.model.storage.ExternalCommands;
 import kirill.smartCore.smartCore.model.storage.UserStorage;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers.ConsoleReader;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController.ConsolePrinter;
@@ -25,14 +27,14 @@ import kirill.smartCore.smartCore.model.storage.AreasStorage;
 
 public class ConsoleUserSettings {
 
+    private static ComPortOutputRouter outputRouter = new ComPortOutputRouter();
     private static ConsoleReader consoleReader = new ConsoleReader();
     private static ConsolePrinter consolePrinter = new ConsolePrinter();
 
-    public static void createNewUser(){
+    public static void createNewUser() {
 
         ConsoleUserSettings.consolePrinter.output("\nInput your name: ");
         String name = ConsoleUserSettings.consoleReader.consoleInput().trim();
-
 
         boolean passwordConfirm = false;
         do {
@@ -42,12 +44,11 @@ public class ConsoleUserSettings {
             ConsoleUserSettings.consolePrinter.output("\nConfirm your password");
             String confirmPassword = ConsoleUserSettings.consoleReader.consoleInput().trim();
 
-            if(password.equals(confirmPassword)){
-                User user_1 = new User(name, password);
-                UserStorage.saveNewUser(user_1);
+            if (password.equals(confirmPassword)) {
+                User user = new User(name, password);
+                UserStorage.saveNewUser(user);
                 passwordConfirm = true;
-            }
-            else {
+            } else {
                 ConsoleUserSettings.consolePrinter.output("\nYou input wrong password, please try again");
             }
         }
@@ -59,8 +60,8 @@ public class ConsoleUserSettings {
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        ConsoleUserSettings.consolePrinter.output(stringBuilder.append("\nSelect the model you want to create.")
-                .append("\nNow we improve six types of home model: ")
+        ConsoleUserSettings.consolePrinter.output(stringBuilder.append("\nSelect the area you want to create.")
+                .append("\nNow we improve six types of home module: ")
                 .append("\n1 - Kitchen;")
                 .append("\n2 - Bad room;")
                 .append("\n3 - Living room;")
@@ -68,11 +69,12 @@ public class ConsoleUserSettings {
                 .append("\n5 - Bathroom;")
                 .append("\n6 - Toilet.\n")
                 .append("\nInput numbers of types to create that model:\n")
+                .append("\nAvailable controllers will be added automatically!\n")
                 .append("\nInput your types by entering, to complete input - Q!"));
 
-        String userComplete = "";
+        boolean userComplete = false;
 
-        while (!userComplete.equals("q")){
+        while (!userComplete) {
 
             String typesOfAreas = ConsoleUserSettings.consoleReader.consoleInput().toLowerCase();
 
@@ -108,7 +110,7 @@ public class ConsoleUserSettings {
                     AreasStorage.addHomeArea(toilet);
                     break;
                 case "q":
-                    userComplete = "q";
+                    userComplete = true;
                     break;
                 default:
                     ConsoleUserSettings.consolePrinter.output("\nYou input wrong type of area, please, try again!");
@@ -117,53 +119,10 @@ public class ConsoleUserSettings {
         }
     }
 
-   public static void addControllersForAreas(final IHomeArea homeArea){
+    public static void addControllersForAreas(final IHomeArea homeArea) {
 
-        StringBuilder stringBuilder = new StringBuilder();
-
-        ConsoleUserSettings.consolePrinter.output(stringBuilder.append("\nPlease input what kind of controller do you want to add in this area:")
-                .append("\n1 - Gas control system;")
-                .append("\n2 - Lighting control system;")
-                .append("\n3 - Water control system;")
-                .append("\n4 - Climate control system;")
-                .append("\n5 - Security control system.")
-                .append("\nInput your types by entering, to complete input - Q!"));
-
-        String userComplete = "";
-
-        while (!userComplete.equals("q")){
-
-            String controlSystems = ConsoleUserSettings.consoleReader.consoleInput().toLowerCase();
-
-            switch (controlSystems){
-                case "1":
-                    GasController gasController = new GasController(ControllerID.GASCONTROLLER_ID);
-                    homeArea.setGasController(gasController);
-                    break;
-                case "2":
-                    Lighting lightingController = new Lighting(ControllerID.LIGHTING_ID);
-                    homeArea.setLightingController(lightingController);
-                    break;
-                case "3":
-                    WaterController waterController = new WaterController(ControllerID.WATERCONRTOLLER_ID);
-                    homeArea.setWaterController(waterController);
-                    break;
-                case "4":
-                    ClimateController climateController = new ClimateController(ControllerID.CLIMATECONTROLLER_ID);
-                    homeArea.setClimateController(climateController);
-                    break;
-                case "5":
-                    AccessController accessController = new AccessController(ControllerID.ACCESSCONTROLLER_ID);
-                    homeArea.setAccessController(accessController);
-                    break;
-                case "q":
-                    userComplete = "q";
-                    break;
-                default:
-                    ConsoleUserSettings.consolePrinter.output("\nYou input wrong controller, please, try again!");
-                    break;
-            }
-        }
+        String homeAreaID = homeArea.getName();
+        outputRouter.output(homeAreaID, ExternalCommands.GET_AVALIBLE_CONTROLLERS);
     }
 }
 

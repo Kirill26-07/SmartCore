@@ -12,6 +12,8 @@ import kirill.smartCore.smartCore.controllers.securityControllers.GasController;
 import kirill.smartCore.smartCore.controllers.securityControllers.WaterController;
 import kirill.smartCore.smartCore.controllers.energyControllers.ClimateController;
 
+import java.util.Objects;
+
 public class HomeArea implements IHomeArea {
 
     private String name;
@@ -86,5 +88,19 @@ public class HomeArea implements IHomeArea {
     @Override
     public ClimateController getClimateController() {
         return climateController;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof HomeArea)) return false;
+        HomeArea homeArea = (HomeArea) o;
+        return Objects.equals(name, homeArea.name);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(name);
     }
 }
