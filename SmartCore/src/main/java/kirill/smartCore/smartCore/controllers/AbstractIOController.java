@@ -8,6 +8,7 @@ package kirill.smartCore.smartCore.controllers;
 import com.arduinoSerialJ.Arduino;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers.IInputRouter;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController.IOutputRouter;
+import kirill.smartCore.smartCore.model.storage.ExternalCommands;
 
 
 public abstract class AbstractIOController implements IInputRouter, IOutputRouter{
@@ -17,25 +18,23 @@ public abstract class AbstractIOController implements IInputRouter, IOutputRoute
 
     protected static Arduino smartHome = new Arduino(SERIAL_PORT, SERIAL_SPEED);
 
-
     @Override
-    public void input(final Object deviceID, final Object externalInput) {
+    public void input(Object deviceID, Object externalInput) {
 
     }
 
     @Override
-    public void output(final String command) {
+    public void output(ExternalCommands command) {
 
     }
 
     @Override
-    public void output(final String controllerID, final boolean controllerState) {
+    public void output(String areaID, ExternalCommands command) {
 
     }
 
     @Override
-    public void output(final String controllerID, final boolean controllerState, final int value) {
+    public void output(String areaID, String controllerID, ExternalCommands command) {
 
     }
-
 }

@@ -4,12 +4,17 @@
 
 package kirill.smartCore.smartCore.model.storage;
 
-public class ControllerID {
+public enum ControllerID {
 
-    public static final int GASCONTROLLER_ID = 0;
-    public static final int LIGHTING_ID = 1;
-    public static final int WATERCONRTOLLER_ID = 2;
-    public static final int CLIMATECONTROLLER_ID = 3;
-    public static final int ACCESSCONTROLLER_ID = 4;
+    GASCONTROLLER_ID(0),
+    LIGHTING_ID(1),
+    WATERCONRTOLLER_ID(2),
+    CLIMATECONTROLLER_ID(3),
+    ACCESSCONTROLLER_ID(4);
 
+    private int ID;
+
+    ControllerID(int index){
+        this.ID = index;
+    }
 }

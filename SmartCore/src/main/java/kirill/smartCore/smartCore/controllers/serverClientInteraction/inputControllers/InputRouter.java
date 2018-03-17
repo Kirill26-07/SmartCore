@@ -15,7 +15,7 @@ public class InputRouter extends AbstractIOController {
     private static final Logger logging = LogManager.getLogger(InputRouter.class.getName());
 
     private byte homeAreaID;
-    private byte deviceID;
+    private byte controllerID;
     private byte sensorSignal;
 
     public void inputSignal() throws InterruptedException {
@@ -27,7 +27,7 @@ public class InputRouter extends AbstractIOController {
 
             byte[] inputData = smartHome.bytesSerialRead(2);
             homeAreaID = inputData[0];
-            deviceID = inputData[1];
+            controllerID = inputData[1];
             sensorSignal = inputData[2];
             inputDataRouting();
         }
@@ -42,7 +42,7 @@ public class InputRouter extends AbstractIOController {
             logging.error("Wrong input value!");
         }
 
-        AreasStorage.getHomeArea(area).inputData(deviceID, sensorSignal);
+        AreasStorage.getHomeArea(area).inputData(controllerID, sensorSignal);
     }
 
     private String areaForAreaID(byte id) throws WrongInputDataException {
