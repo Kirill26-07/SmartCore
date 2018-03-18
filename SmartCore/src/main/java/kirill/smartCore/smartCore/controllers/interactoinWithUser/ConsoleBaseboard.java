@@ -8,10 +8,13 @@ package kirill.smartCore.smartCore.controllers.interactoinWithUser;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers.InputRouter;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController.ComPortOutputRouter;
 import kirill.smartCore.smartCore.controllers.interactoinWithUser.settings.ConsoleUserSettings;
+import kirill.smartCore.smartCore.exceptions.ConnectionFailedException;
 import kirill.smartCore.smartCore.model.User;
 import kirill.smartCore.smartCore.model.storage.UserStorage;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers.ConsoleReader;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController.ConsolePrinter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ConsoleBaseboard implements IUserInteraction {
 
@@ -21,9 +24,16 @@ public class ConsoleBaseboard implements IUserInteraction {
     private static final InputRouter inputRouter = new InputRouter();
     private static final ComPortOutputRouter comOutputRouter = new ComPortOutputRouter();
 
+    private static final Logger logger = LogManager.getLogger(ConsoleBaseboard.class.getName());
+
     @Override
-    public void startSystem() throws InterruptedException {
-        inputRouter.inputSignal();
+    public void startSystem() {
+        try {
+            inputRouter.inputSignal();
+        } catch (ConnectionFailedException e) {
+            logger.error("Connection error, restart system!");
+            inputRouter.restartInputConnection();
+        }
     }
 
     @Override
@@ -53,7 +63,7 @@ public class ConsoleBaseboard implements IUserInteraction {
     }
 
     @Override
-    public void firstStartSystem() throws InterruptedException {
+    public void firstStartSystem() {
 
         consolePrinter.output("I see, you are not registered in this system, let's register!");
         ConsoleUserSettings.createNewUser();

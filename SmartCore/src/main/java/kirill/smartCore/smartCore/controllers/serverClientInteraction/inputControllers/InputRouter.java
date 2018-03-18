@@ -5,6 +5,7 @@
 package kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers;
 
 import kirill.smartCore.smartCore.controllers.AbstractIOController;
+import kirill.smartCore.smartCore.exceptions.ConnectionFailedException;
 import kirill.smartCore.smartCore.exceptions.WrongInputDataException;
 import kirill.smartCore.smartCore.model.storage.AreasStorage;
 import org.apache.logging.log4j.LogManager;
@@ -14,22 +15,39 @@ public class InputRouter extends AbstractIOController {
 
     private static final Logger logging = LogManager.getLogger(InputRouter.class.getName());
 
+    private boolean connected;
     private byte homeAreaID;
     private byte controllerID;
     private byte sensorSignal;
 
-    public void inputSignal() throws InterruptedException {
-        boolean connected = smartHome.openConnection();
-        System.out.println("Connection success: " + connected);
-        Thread.sleep(1000);
+    public void inputSignal() throws ConnectionFailedException {
 
-        while (connected) {
+        try {
+            openInputConnection();
+        } catch (InterruptedException e) {
+            logging.fatal(e.getStackTrace());
+        }
+
+        while (connected){
 
             byte[] inputData = smartHome.bytesSerialRead(2);
             homeAreaID = inputData[0];
             controllerID = inputData[1];
             sensorSignal = inputData[2];
             inputDataRouting();
+        }
+
+        if(!connected){
+            throw new ConnectionFailedException();
+        }
+    }
+
+    public void restartInputConnection() {
+        smartHome.closeConnection();
+        try {
+            openInputConnection();
+        } catch (InterruptedException e) {
+            logging.fatal(e.getStackTrace());
         }
     }
 
@@ -70,6 +88,13 @@ public class InputRouter extends AbstractIOController {
                 throw new WrongInputDataException();
             }
         }
+    }
+
+    private void openInputConnection() throws InterruptedException {
+
+        this.connected = smartHome.openConnection();
+        System.out.println("Connection success: " + connected);
+        Thread.sleep(1000);
     }
 }
 
