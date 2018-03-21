@@ -32,6 +32,8 @@ public class HomeArea implements IHomeArea {
     @Override
     public void inputData(byte controllerID, byte inputData) {
 
+
+
     }
 
     @Override
@@ -65,30 +67,6 @@ public class HomeArea implements IHomeArea {
         return name;
     }
 
-    @Override
-    public Lighting getLightingController() {
-        return lightingController;
-    }
-
-    @Override
-    public GasController getGasController() {
-        return gasController;
-    }
-
-    @Override
-    public WaterController getWaterController() {
-        return waterController;
-    }
-
-    @Override
-    public AccessController getAccessController() {
-        return accessController;
-    }
-
-    @Override
-    public ClimateController getClimateController() {
-        return climateController;
-    }
 
     @Override
     public boolean equals(Object o) {

@@ -11,13 +11,6 @@ import java.util.Map;
 
 public class AreasStorage {
 
-    public static final String KITCHEN_AREA_NAME = "Kitchen";
-    public static final String BAD_ROOM_AREA_NAME = "Bad room";
-    public static final String LIVING_ROOM_AREA_NAME = "Living room";
-    public static final String LOBBY_AREA_NAME = "Lobby";
-    public static final String BATHROOM_AREA_NAME = "Bathroom";
-    public static final String TOILET_AREA_NAME = "Toilet";
-
     private static Map<String, IHomeArea> homeAreas = new HashMap<>();
 
     public static void addHomeArea(final IHomeArea homeArea) {
@@ -35,5 +28,25 @@ public class AreasStorage {
     public static IHomeArea getHomeArea(final String homeAreaName) {
 
         return homeAreas.get(homeAreaName);
+    }
+
+    public enum AreaName {
+
+        KITCHEN("Kitchen"),
+        BAD_ROOM("Bad room"),
+        LIVING_ROOM("Living room"),
+        LOBBY("Lobby"),
+        BATHROOM("Bathroom"),
+        TOILET("Toilet");
+
+        String name;
+
+        AreaName(String name){
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
     }
 }

@@ -24,21 +24,21 @@ class HomeAreaTest {
 
     @Test
     void setGasController() {
-        GasController testGasController = new GasController(ControllerID.GASCONTROLLER_ID);
+        GasController testGasController = new GasController(ControllerID.GAS_CONTROLLER_ID);
         testHomeArea.setGasController(testGasController);
         assertNotNull(testHomeArea.getGasController());
     }
 
     @Test
     void setWaterController() {
-        WaterController testWaterController = new WaterController(ControllerID.WATERCONRTOLLER_ID);
+        WaterController testWaterController = new WaterController(ControllerID.WATER_CONTROLLER_ID);
         testHomeArea.setWaterController(testWaterController);
         assertNotNull(testHomeArea.getWaterController());
     }
 
     @Test
     void setAccessController() {
-        AccessController testAccessController = new AccessController(ControllerID.ACCESSCONTROLLER_ID);
+        AccessController testAccessController = new AccessController(ControllerID.ACCESS_CONTROLLER_ID);
         testHomeArea.setAccessController(testAccessController);
         assertNotNull(testHomeArea.getAccessController());
 
@@ -46,7 +46,7 @@ class HomeAreaTest {
 
     @Test
     void setClimateController() {
-        ClimateController testClimateController = new ClimateController(ControllerID.CLIMATECONTROLLER_ID);
+        ClimateController testClimateController = new ClimateController(ControllerID.CLIMATE_CONTROLLER_ID);
         testHomeArea.setClimateController(testClimateController);
         assertNotNull(testHomeArea.getClimateController());
     }

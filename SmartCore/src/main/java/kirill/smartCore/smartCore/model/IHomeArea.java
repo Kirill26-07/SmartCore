@@ -22,13 +22,4 @@ public interface IHomeArea {
 
     String getName();
 
-    Lighting getLightingController();
-
-    GasController getGasController();
-
-    WaterController getWaterController();
-
-    AccessController getAccessController();
-
-    ClimateController getClimateController();
 }

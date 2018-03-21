@@ -66,22 +66,22 @@ public class InputRouter extends AbstractIOController {
     private String areaForAreaID(byte id) throws WrongInputDataException {
         switch (homeAreaID) {
             case 0: {
-                return AreasStorage.KITCHEN_AREA_NAME;
+                return AreasStorage.AreaName.KITCHEN.getName();
             }
             case 1: {
-                return AreasStorage.BAD_ROOM_AREA_NAME;
+                return AreasStorage.AreaName.BAD_ROOM.getName();
             }
             case 2: {
-                return AreasStorage.LIVING_ROOM_AREA_NAME;
+                return AreasStorage.AreaName.LIVING_ROOM.getName();
             }
             case 3: {
-                return AreasStorage.LOBBY_AREA_NAME;
+                return AreasStorage.AreaName.LOBBY.getName();
             }
             case 4: {
-                return AreasStorage.BATHROOM_AREA_NAME;
+                return AreasStorage.AreaName.BATHROOM.getName();
             }
             case 5: {
-                return AreasStorage.TOILET_AREA_NAME;
+                return AreasStorage.AreaName.TOILET.getName();
             }
             default: {
                 System.out.println("Wrong input value!");

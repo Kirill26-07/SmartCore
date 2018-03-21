@@ -5,6 +5,6 @@ package kirill.smartCore.smartCore.model.storage;
 
 public enum ExternalCommands {
 
-    GET_AVALIBLE_CONTROLLERS,
+    GET_AVAILABLE_CONTROLLERS,
 
 }

@@ -37,7 +37,7 @@ public class ConsoleBaseboard implements IUserInteraction {
     }
 
     @Override
-    public void firstUserGreeting() throws InterruptedException {
+    public void firstUserGreeting() {
 
         consolePrinter.output(String.format("Welcome to Your Smart Home system.\nMy name is %s, and I am your home assistant\n", SYSTEM_Name));
 
