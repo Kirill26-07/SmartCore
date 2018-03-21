@@ -24,15 +24,14 @@ public class HomeArea implements IHomeArea {
     private AccessController accessController;
     private ClimateController climateController;
 
+    private AreaPreSettings areaPreSettings = new AreaPreSettings();
+
     public HomeArea(final String areaName){
         this.name = areaName;
     }
 
-
     @Override
     public void inputData(byte controllerID, byte inputData) {
-
-
 
     }
 
@@ -61,12 +60,10 @@ public class HomeArea implements IHomeArea {
         this.climateController = climateController;
     }
 
-
     @Override
     public String getName() {
         return name;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -81,4 +78,52 @@ public class HomeArea implements IHomeArea {
 
         return Objects.hash(name);
     }
+
+    private class AreaPreSettings {
+
+        private double MAX_TEMP = 28.0;
+        private double MIN_TEMP = 18.0;
+
+        private byte MAX_HUMIDITY = 80;
+        private byte MIN_HUMIDIY = 30;
+
+        private short MAX_CO2 = 900;
+
+        private boolean AUTOMATIC_ELECTRIC_SWITCH;
+        private boolean AUTOMATIC_LIGHTNING_SWITCH;
+        private short LIGHTING_DELAY_TIME = 3000;
+
+        public void setMAX_TEMP(double MAX_TEMP) {
+            this.MAX_TEMP = MAX_TEMP;
+        }
+
+        public void setMIN_TEMP(double MIN_TEMP) {
+            this.MIN_TEMP = MIN_TEMP;
+        }
+
+        public void setMAX_HUMIDITY(byte MAX_HUMIDITY) {
+            this.MAX_HUMIDITY = MAX_HUMIDITY;
+        }
+
+        public void setMIN_HUMIDIY(byte MIN_HUMIDITY) {
+            this.MIN_HUMIDIY = MIN_HUMIDITY;
+        }
+
+        public void setMAX_CO2(byte MAX_CO2) {
+            this.MAX_CO2 = MAX_CO2;
+        }
+
+        public void setAUTOMATIC_ELECTRIC_SWITCH(boolean AUTOMATIC_ELECTRIC_SWITCH) {
+            this.AUTOMATIC_ELECTRIC_SWITCH = AUTOMATIC_ELECTRIC_SWITCH;
+        }
+
+        public void setAUTOMATIC_LIGHTNING_SWITCH(boolean AUTOMATIC_LIGHTNING_SWITCH) {
+            this.AUTOMATIC_LIGHTNING_SWITCH = AUTOMATIC_LIGHTNING_SWITCH;
+        }
+
+        public void setLIGHTING_DELAY_TIME(short LIGHTING_DELAY_TIME) {
+            this.LIGHTING_DELAY_TIME = LIGHTING_DELAY_TIME;
+        }
+    }
+
 }
