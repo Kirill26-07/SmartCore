@@ -79,7 +79,7 @@ public class HomeArea implements IHomeArea {
         return Objects.hash(name);
     }
 
-    private class AreaPreSettings {
+    public class AreaPreSettings {
 
         private double MAX_TEMP = 28.0;
         private double MIN_TEMP = 18.0;
@@ -123,6 +123,38 @@ public class HomeArea implements IHomeArea {
 
         public void setLIGHTING_DELAY_TIME(short LIGHTING_DELAY_TIME) {
             this.LIGHTING_DELAY_TIME = LIGHTING_DELAY_TIME;
+        }
+
+        public double getMAX_TEMP() {
+            return MAX_TEMP;
+        }
+
+        public double getMIN_TEMP() {
+            return MIN_TEMP;
+        }
+
+        public byte getMAX_HUMIDITY() {
+            return MAX_HUMIDITY;
+        }
+
+        public byte getMIN_HUMIDIY() {
+            return MIN_HUMIDIY;
+        }
+
+        public short getMAX_CO2() {
+            return MAX_CO2;
+        }
+
+        public boolean isAUTOMATIC_ELECTRIC_SWITCH() {
+            return AUTOMATIC_ELECTRIC_SWITCH;
+        }
+
+        public boolean isAUTOMATIC_LIGHTNING_SWITCH() {
+            return AUTOMATIC_LIGHTNING_SWITCH;
+        }
+
+        public short getLIGHTING_DELAY_TIME() {
+            return LIGHTING_DELAY_TIME;
         }
     }
 

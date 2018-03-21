@@ -7,25 +7,17 @@
 
 package kirill.smartCore.smartCore.controllers;
 
+import kirill.smartCore.smartCore.model.HomeArea;
+
 import java.util.Objects;
 
 public abstract class AbstractController implements IController {
 
-    protected boolean controllerState;
+    private byte controllerState;
     protected final int CONTROLLER_ID;
 
     protected AbstractController(int controller_id) {
         CONTROLLER_ID = controller_id;
-    }
-
-    @Override
-    public void setControllerState(boolean controllerState) {
-        this.controllerState = controllerState;
-    }
-
-    @Override
-    public boolean getControllerState(){
-        return controllerState;
     }
 
     @Override
@@ -48,8 +40,38 @@ public abstract class AbstractController implements IController {
     }
 
     @Override
+    public byte getControllerState(){
+        return this.controllerState;
+    }
+
+    @Override
+    public void setControllerState(byte controllerState){
+        this.controllerState = controllerState;
+    }
+
+    @Override
     public abstract void switchOn();
 
     @Override
     public abstract void switchOf();
+
+    @Override
+    public abstract void inputData(byte inputValue, HomeArea.AreaPreSettings areaPreSettings);
+
+    public enum controllerStates {
+        ON(1),
+        OFF(0),
+        ALARM(2),
+        NOT_AVALIABLE(3);
+
+        int state;
+
+        controllerStates(int state){
+            this.state = state;
+        }
+
+        public int getState() {
+            return state;
+        }
+    }
 }
