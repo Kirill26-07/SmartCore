@@ -2,6 +2,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
   <groupId>kirill.smartCore</groupId>
   <artifactId>SmartCore</artifactId>
   <version>1.0-SNAPSHOT</version>
@@ -46,9 +53,9 @@
       <scope>test</scope>
     </dependency>
       <dependency>
-          <groupId>com.arduinoSerialJ</groupId>
-          <artifactId>ArduinoSerialJ</artifactId>
-          <version>2.1</version>
+          <groupId>com.github.Kirill26-07</groupId>
+          <artifactId>Arduino</artifactId>
+          <version>master-4105c6a020-1</version>
       </dependency>
       <dependency>
           <groupId>com.github.stefanbirkner</groupId>
@@ -65,6 +72,12 @@
           <groupId>org.apache.logging.log4j</groupId>
           <artifactId>log4j-core</artifactId>
           <version>2.10.0</version>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>3.0.2</version>
+          <type>maven-plugin</type>
       </dependency>
   </dependencies>
 </project>
