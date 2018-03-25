@@ -7,6 +7,7 @@ package kirill.smartCore.smartCore.controllers.serverClientInteraction.inputCont
 import kirill.smartCore.smartCore.controllers.AbstractIOController;
 import kirill.smartCore.smartCore.exceptions.ConnectionFailedException;
 import kirill.smartCore.smartCore.exceptions.WrongInputDataException;
+import kirill.smartCore.smartCore.model.HomeArea;
 import kirill.smartCore.smartCore.model.storage.AreasStorage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,7 +22,6 @@ public class InputRouter extends AbstractIOController {
     private byte sensorSignal;
 
     public void inputSignal() throws ConnectionFailedException {
-
         try {
             openInputConnection();
         } catch (InterruptedException e) {
@@ -29,7 +29,6 @@ public class InputRouter extends AbstractIOController {
         }
 
         while (connected){
-
             byte[] inputData = smartHome.bytesSerialRead(2);
             homeAreaID = inputData[0];
             controllerID = inputData[1];
@@ -52,19 +51,27 @@ public class InputRouter extends AbstractIOController {
     }
 
     private void inputDataRouting() {
-
         String area = "";
+
         try {
             area = areaForAreaID(homeAreaID);
-        }catch (WrongInputDataException e){
+        }
+        catch (WrongInputDataException e){
             logging.error("Wrong input value!");
         }
 
-        AreasStorage.getHomeArea(area).inputData(controllerID, sensorSignal);
+        HomeArea homeArea = (HomeArea)AreasStorage.getHomeArea(area);
+
+        if(homeArea.getName().equals(AreasStorage.NOT_FOUND)){
+          logging.error("Area is not found!");
+        }
+        else {
+            homeArea.inputData(controllerID, sensorSignal);
+        }
     }
 
     private String areaForAreaID(byte id) throws WrongInputDataException {
-        switch (homeAreaID) {
+        switch (id) {
             case 0: {
                 return AreasStorage.AreaName.KITCHEN.getName();
             }
@@ -91,7 +98,6 @@ public class InputRouter extends AbstractIOController {
     }
 
     private void openInputConnection() throws InterruptedException {
-
         this.connected = smartHome.openConnection();
         System.out.println("Connection success: " + connected);
         Thread.sleep(1000);

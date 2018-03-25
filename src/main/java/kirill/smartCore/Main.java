@@ -7,7 +7,7 @@ import kirill.smartCore.smartCore.controllers.interactoinWithUser.ConsoleBaseboa
 
 public class Main {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
 
         ConsoleBaseboard consoleBaseboard = new ConsoleBaseboard();
         consoleBaseboard.firstUserGreeting();

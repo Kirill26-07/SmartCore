@@ -4,6 +4,7 @@
  */
 package kirill.smartCore.smartCore.model.storage;
 
+import kirill.smartCore.smartCore.model.HomeArea;
 import kirill.smartCore.smartCore.model.IHomeArea;
 
 import java.util.HashMap;
@@ -12,6 +13,7 @@ import java.util.Map;
 public class AreasStorage {
 
     private static Map<String, IHomeArea> homeAreas = new HashMap<>();
+    public static final String NOT_FOUND = "NOT FOUND";
 
     public static void addHomeArea(final IHomeArea homeArea) {
 
@@ -27,7 +29,7 @@ public class AreasStorage {
 
     public static IHomeArea getHomeArea(final String homeAreaName) {
 
-        return homeAreas.get(homeAreaName);
+        return homeAreas.getOrDefault(homeAreaName, new HomeArea(NOT_FOUND));
     }
 
     public enum AreaName {

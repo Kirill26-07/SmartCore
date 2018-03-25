@@ -12,6 +12,7 @@ import java.util.Map;
 public class UserStorage {
 
     private static Map<String, User> userStorage = new HashMap<>();
+    public static final String NOT_FOUND = "NOT FOUND";
 
     public static void saveNewUser(final User newUser) {
 
@@ -21,7 +22,7 @@ public class UserStorage {
 
     public static User getUser(final String userName) {
 
-        return userStorage.get(userName);
+        return userStorage.getOrDefault(userName, new User(NOT_FOUND, ""));
     }
 
     public static Map<String, User> getUserStorage() {

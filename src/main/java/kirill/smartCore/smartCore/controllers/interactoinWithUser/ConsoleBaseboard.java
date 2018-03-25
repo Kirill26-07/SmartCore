@@ -38,7 +38,6 @@ public class ConsoleBaseboard implements IUserInteraction {
 
     @Override
     public void firstUserGreeting() {
-
         consolePrinter.output(String.format("Welcome to Your Smart Home system.\nMy name is %s, and I am your home assistant\n", SYSTEM_Name));
 
         if(isFirstStart()){
@@ -58,19 +57,16 @@ public class ConsoleBaseboard implements IUserInteraction {
 
     @Override
     public boolean isFirstStart() {
-
         return UserStorage.getUserStorage().isEmpty();
     }
 
     @Override
     public void firstStartSystem() {
-
         consolePrinter.output("I see, you are not registered in this system, let's register!");
         ConsoleUserSettings.createNewUser();
         ConsoleUserSettings.addNewAreas();
         startSystem();
     }
-
 
     @Override
     public void userMenu() {
@@ -78,7 +74,6 @@ public class ConsoleBaseboard implements IUserInteraction {
     }
 
     private boolean authorization(){
-
         consolePrinter.output("Please, input your registration name:");
         String userName = consoleReader.consoleInput();
 
@@ -86,6 +81,11 @@ public class ConsoleBaseboard implements IUserInteraction {
         String password = consoleReader.consoleInput();
 
         User userAuthorization = UserStorage.getUser(userName);
+
+        if(userAuthorization.getUserName().equals(UserStorage.NOT_FOUND)){
+            logger.error("User is NOT FOUND!");
+            return false;
+        }
 
         return userAuthorization.getUserName().equals(userName) && userAuthorization.getUserPassword().equals(password);
     }

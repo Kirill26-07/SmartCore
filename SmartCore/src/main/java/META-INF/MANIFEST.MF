@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Class-Path: arduino.jar arduino-serial-comm-1.0.3.jar arduinoSerial-1.
- 0.jar rxtx-2.1.7.jar arduino-1.0.jar jSerialComm-1.3.11.jar
-Main-Class: kirill.smartCore.Main
-
