@@ -7,22 +7,23 @@
 
 package kirill.smartCore.smartCore.controllers;
 
+import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController.ComPortOutputRouter;
 import kirill.smartCore.smartCore.model.HomeArea;
+import kirill.smartCore.smartCore.model.storage.ExternalCommands;
 
 import java.util.Objects;
 
 public abstract class AbstractController implements IController {
 
-    private byte controllerState;
-    protected final int CONTROLLER_ID;
+    private static ComPortOutputRouter comPortOutputRouter = new ComPortOutputRouter();
 
-    protected AbstractController(int controller_id) {
-        CONTROLLER_ID = controller_id;
-    }
+    protected int controllerState;
+    private final int CONTROLLER_ID;
+    private final String AREA_ID;
 
-    @Override
-    public int getCONTROLLER_ID() {
-        return CONTROLLER_ID;
+    protected AbstractController(int controller_id, String area_id) {
+        this.CONTROLLER_ID = controller_id;
+        this.AREA_ID = area_id;
     }
 
     @Override
@@ -40,20 +41,14 @@ public abstract class AbstractController implements IController {
     }
 
     @Override
-    public byte getControllerState(){
-        return this.controllerState;
+    public void switchOn() {
+        comPortOutputRouter.output(AREA_ID, CONTROLLER_ID, ExternalCommands.ON);
     }
 
     @Override
-    public void setControllerState(byte controllerState){
-        this.controllerState = controllerState;
+    public void switchOf() {
+        comPortOutputRouter.output(AREA_ID, CONTROLLER_ID, ExternalCommands.OFF);
     }
-
-    @Override
-    public abstract void switchOn();
-
-    @Override
-    public abstract void switchOf();
 
     @Override
     public abstract void inputData(byte inputValue, HomeArea.AreaPreSettings areaPreSettings);

@@ -6,5 +6,5 @@ public interface IOutputRouter {
 
     void output(ExternalCommands command);
     void output(String areaID, ExternalCommands command);
-    void output(String areaID, String controllerID, ExternalCommands command);
+    void output(String areaID, int controllerID, ExternalCommands command);
 }

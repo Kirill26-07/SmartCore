@@ -34,7 +34,7 @@ public abstract class AbstractIOController implements IInputRouter, IOutputRoute
     }
 
     @Override
-    public void output(String areaID, String controllerID, ExternalCommands command) {
+    public void output(String areaID, int controllerID, ExternalCommands command) {
 
     }
 }

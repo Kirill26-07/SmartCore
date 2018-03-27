@@ -8,23 +8,16 @@ import kirill.smartCore.smartCore.model.HomeArea;
 
 public class GasController extends AbstractController {
 
-    public GasController(int controller_id) {
-        super(controller_id);
+    private static final byte ALARM = 9;
+
+    public GasController(int controller_id, String area_id) {
+        super(controller_id, area_id);
     }
 
     @Override
     public void inputData(byte inputValue, HomeArea.AreaPreSettings areaPreSettings) {
-
+        if(inputValue == ALARM){
+            switchOf();
+        }
     }
-
-    @Override
-    public void switchOn() {
-
-    }
-
-    @Override
-    public void switchOf() {
-
-    }
-
 }

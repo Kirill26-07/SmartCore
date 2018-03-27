@@ -8,8 +8,8 @@ import kirill.smartCore.smartCore.model.HomeArea;
 
 public class ClimateController extends AbstractController {
 
-    public ClimateController(int controller_id) {
-        super(controller_id);
+    public ClimateController(int controller_id, String area_id) {
+        super(controller_id, area_id);
     }
 
     @Override
@@ -23,13 +23,4 @@ public class ClimateController extends AbstractController {
         }
     }
 
-    @Override
-    public void switchOn() {
-
-    }
-
-    @Override
-    public void switchOf() {
-
-    }
 }
