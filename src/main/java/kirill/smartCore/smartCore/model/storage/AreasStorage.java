@@ -15,15 +15,17 @@ public class AreasStorage {
     private static Map<String, IHomeArea> homeAreas = new HashMap<>();
     public static final String NOT_FOUND = "NOT FOUND";
 
-    public static void addHomeArea(final IHomeArea homeArea) {
+    public static boolean addHomeArea(final IHomeArea homeArea) {
 
         String homeAreaName = homeArea.getName();
 
         if(homeAreas.containsKey(homeAreaName)){
             System.out.println("This area has already been created");
+            return false;
         }
         else {
             homeAreas.put(homeAreaName, homeArea);
+            return true;
         }
     }
 

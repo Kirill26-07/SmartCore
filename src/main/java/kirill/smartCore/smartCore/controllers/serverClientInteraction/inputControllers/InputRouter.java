@@ -15,6 +15,7 @@ import org.apache.logging.log4j.Logger;
 public class InputRouter extends AbstractIOController {
 
     private static final Logger logging = LogManager.getLogger(InputRouter.class.getName());
+    private static final int INPUT_BYTE_LIMIT = 2;
 
     private boolean connected;
     private byte homeAreaID;
@@ -28,11 +29,12 @@ public class InputRouter extends AbstractIOController {
             logging.fatal(e.getStackTrace());
         }
 
+        byte[] inputData;
         while (connected){
-            byte[] inputData = smartHome.bytesSerialRead(2);
-            homeAreaID = inputData[0];
-            controllerID = inputData[1];
-            sensorSignal = inputData[2];
+            inputData = smartHome.bytesSerialRead(INPUT_BYTE_LIMIT);
+            this.homeAreaID = inputData[0];
+            this.controllerID = inputData[1];
+            this.sensorSignal = inputData[2];
             inputDataRouting();
         }
 

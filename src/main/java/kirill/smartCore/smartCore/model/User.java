@@ -68,4 +68,9 @@ public class User {
 
         return Objects.hash(userName, userPassword);
     }
+
+    @Override
+    public String toString() {
+        return userName;
+    }
 }

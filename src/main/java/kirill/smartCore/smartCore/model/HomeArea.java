@@ -85,7 +85,7 @@ public class HomeArea implements IHomeArea {
         private double MIN_TEMP = 18.0;
 
         private byte MAX_HUMIDITY = 80;
-        private byte MIN_HUMIDIY = 30;
+        private byte MIN_HUMIDITY = 30;
 
         private short MAX_CO2 = 900;
 
@@ -105,8 +105,8 @@ public class HomeArea implements IHomeArea {
             this.MAX_HUMIDITY = MAX_HUMIDITY;
         }
 
-        public void setMIN_HUMIDIY(byte MIN_HUMIDITY) {
-            this.MIN_HUMIDIY = MIN_HUMIDITY;
+        public void setMIN_HUMIDITY(byte MIN_HUMIDITY) {
+            this.MIN_HUMIDITY = MIN_HUMIDITY;
         }
 
         public void setMAX_CO2(byte MAX_CO2) {
@@ -137,8 +137,8 @@ public class HomeArea implements IHomeArea {
             return MAX_HUMIDITY;
         }
 
-        public byte getMIN_HUMIDIY() {
-            return MIN_HUMIDIY;
+        public byte getMIN_HUMIDITY() {
+            return MIN_HUMIDITY;
         }
 
         public short getMAX_CO2() {
