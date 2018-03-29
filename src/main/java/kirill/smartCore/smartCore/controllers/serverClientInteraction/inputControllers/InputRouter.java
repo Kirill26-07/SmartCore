@@ -53,16 +53,16 @@ public class InputRouter extends AbstractIOController implements IInputRouter {
     }
 
     private void inputDataRouting() {
-        String area = "";
+        String areaID = "";
 
         try {
-            area = areaForAreaID(homeAreaID);
+            areaID = AreasStorage.getAreaName(homeAreaID);
         }
         catch (WrongInputDataException e){
             logging.error("Wrong input value!");
         }
 
-        HomeArea homeArea = (HomeArea)AreasStorage.getHomeArea(area);
+        HomeArea homeArea = (HomeArea)AreasStorage.getHomeArea(areaID);
 
         if(homeArea.getName().equals(AreasStorage.NOT_FOUND)){
           logging.error("Area is not found!");
@@ -72,32 +72,6 @@ public class InputRouter extends AbstractIOController implements IInputRouter {
         }
     }
 
-    private String areaForAreaID(final byte id) throws WrongInputDataException {
-        switch (id) {
-            case 0: {
-                return AreasStorage.AreaName.KITCHEN.getName();
-            }
-            case 1: {
-                return AreasStorage.AreaName.BAD_ROOM.getName();
-            }
-            case 2: {
-                return AreasStorage.AreaName.LIVING_ROOM.getName();
-            }
-            case 3: {
-                return AreasStorage.AreaName.LOBBY.getName();
-            }
-            case 4: {
-                return AreasStorage.AreaName.BATHROOM.getName();
-            }
-            case 5: {
-                return AreasStorage.AreaName.TOILET.getName();
-            }
-            default: {
-                System.out.println("Wrong input value!");
-                throw new WrongInputDataException();
-            }
-        }
-    }
 
     private void openInputConnection() throws InterruptedException {
         this.connected = smartHome.openConnection();

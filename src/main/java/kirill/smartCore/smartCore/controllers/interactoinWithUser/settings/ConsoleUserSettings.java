@@ -54,7 +54,9 @@ public class ConsoleUserSettings {
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        ConsoleUserSettings.consolePrinter.output(stringBuilder.append("\nSelect the area you want to create.")
+        ConsoleUserSettings.consolePrinter.output(stringBuilder
+                .append("\nSETTINGS\n")
+                .append("\nSelect what area do you want to create.")
                 .append("\nNow we improve six types of home module: ")
                 .append("\n1 - Kitchen;")
                 .append("\n2 - Bad room;")

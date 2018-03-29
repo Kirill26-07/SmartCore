@@ -11,6 +11,7 @@ import kirill.smartCore.smartCore.controllers.securityControllers.AccessControll
 import kirill.smartCore.smartCore.controllers.securityControllers.GasController;
 import kirill.smartCore.smartCore.controllers.securityControllers.WaterController;
 import kirill.smartCore.smartCore.controllers.energyControllers.ClimateController;
+import kirill.smartCore.smartCore.model.storage.ControllerID;
 
 import java.util.Objects;
 
@@ -32,7 +33,21 @@ public class HomeArea implements IHomeArea {
 
     @Override
     public void inputData(byte controllerID, byte inputData) {
-
+        if(ControllerID.LIGHTING_ID.getID() == controllerID){
+            this.lightingController.inputData(inputData, areaPreSettings);
+        }
+        else if (ControllerID.GAS_CONTROLLER_ID.getID() == controllerID){
+            this.gasController.inputData(inputData, areaPreSettings);
+        }
+        else if(ControllerID.WATER_CONTROLLER_ID.getID() == controllerID){
+            this.waterController.inputData(inputData, areaPreSettings);
+        }
+        else if(ControllerID.CLIMATE_CONTROLLER_ID.getID() == controllerID){
+            this.climateController.inputData(inputData, areaPreSettings);
+        }
+        else if(ControllerID.ACCESS_CONTROLLER_ID.getID() == controllerID){
+            this.accessController.inputData(inputData, areaPreSettings);
+        }
     }
 
     @Override

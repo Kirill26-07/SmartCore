@@ -4,6 +4,7 @@
  */
 package kirill.smartCore.smartCore.model.storage;
 
+import kirill.smartCore.smartCore.exceptions.WrongInputDataException;
 import kirill.smartCore.smartCore.model.HomeArea;
 import kirill.smartCore.smartCore.model.IHomeArea;
 
@@ -32,6 +33,33 @@ public class AreasStorage {
     public static IHomeArea getHomeArea(final String homeAreaName) {
 
         return homeAreas.getOrDefault(homeAreaName, new HomeArea(NOT_FOUND));
+    }
+
+    public static String getAreaName(final byte id) throws WrongInputDataException {
+        switch (id) {
+            case 0: {
+                return AreaName.KITCHEN.getName();
+            }
+            case 1: {
+                return AreaName.BAD_ROOM.getName();
+            }
+            case 2: {
+                return AreaName.LIVING_ROOM.getName();
+            }
+            case 3: {
+                return AreaName.LOBBY.getName();
+            }
+            case 4: {
+                return AreaName.BATHROOM.getName();
+            }
+            case 5: {
+                return AreaName.TOILET.getName();
+            }
+            default: {
+                System.out.println("Wrong input value!");
+                throw new WrongInputDataException();
+            }
+        }
     }
 
     public enum AreaName {
