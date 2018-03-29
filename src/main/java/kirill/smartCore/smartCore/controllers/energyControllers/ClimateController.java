@@ -8,12 +8,12 @@ import kirill.smartCore.smartCore.model.HomeArea;
 
 public class ClimateController extends AbstractController {
 
-    public ClimateController(int controller_id, String area_id) {
+    public ClimateController(final int controller_id, final String area_id) {
         super(controller_id, area_id);
     }
 
     @Override
-    public void inputData(byte inputValue, HomeArea.AreaPreSettings areaPreSettings) {
+    public void inputData(final byte inputValue, final HomeArea.AreaPreSettings areaPreSettings) {
 
         if(inputValue >= areaPreSettings.getMAX_TEMP()){
             switchOn();

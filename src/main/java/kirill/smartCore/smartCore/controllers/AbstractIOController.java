@@ -11,17 +11,13 @@ import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputCont
 import kirill.smartCore.smartCore.model.storage.ExternalCommands;
 
 
-public abstract class AbstractIOController implements IInputRouter, IOutputRouter{
+public abstract class AbstractIOController implements IOutputRouter{
 
     private static final String SERIAL_PORT = "/dev/cu.usbmodem1411";
     private static final int SERIAL_SPEED = 9600;
 
     protected static Arduino smartHome = new Arduino(SERIAL_PORT, SERIAL_SPEED);
 
-    @Override
-    public void input(Object deviceID, Object externalInput) {
-
-    }
 
     @Override
     public void output(ExternalCommands command) {

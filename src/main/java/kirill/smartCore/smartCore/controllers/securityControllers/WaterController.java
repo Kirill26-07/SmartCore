@@ -11,12 +11,12 @@ public class WaterController extends AbstractController {
 
     private static final byte ALARM = 9;
 
-    public WaterController(int controller_id, String area_id) {
+    public WaterController(final int controller_id, final String area_id) {
         super(controller_id, area_id);
     }
 
     @Override
-    public void inputData(byte inputValue, HomeArea.AreaPreSettings areaPreSettings) {
+    public void inputData(final byte inputValue, final HomeArea.AreaPreSettings areaPreSettings) {
         if(inputValue == ALARM){
             switchOf();
         }

@@ -12,7 +12,7 @@ import kirill.smartCore.smartCore.model.storage.AreasStorage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class InputRouter extends AbstractIOController {
+public class InputRouter extends AbstractIOController implements IInputRouter {
 
     private static final Logger logging = LogManager.getLogger(InputRouter.class.getName());
     private static final int INPUT_BYTE_LIMIT = 2;
@@ -72,7 +72,7 @@ public class InputRouter extends AbstractIOController {
         }
     }
 
-    private String areaForAreaID(byte id) throws WrongInputDataException {
+    private String areaForAreaID(final byte id) throws WrongInputDataException {
         switch (id) {
             case 0: {
                 return AreasStorage.AreaName.KITCHEN.getName();

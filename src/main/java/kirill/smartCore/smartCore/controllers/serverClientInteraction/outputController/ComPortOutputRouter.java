@@ -11,17 +11,17 @@ public class ComPortOutputRouter extends AbstractIOController {
 
 
     @Override
-    public void output(ExternalCommands command) {
+    public void output(final ExternalCommands command) {
 
     }
 
     @Override
-    public void output(String areaID, ExternalCommands command) {
+    public void output(final String areaID, final ExternalCommands command) {
 
     }
 
     @Override
-    public void output(String areaID, int controllerID, ExternalCommands command) {
+    public void output(final String areaID, final int controllerID, ExternalCommands command) {
 
     }
 }

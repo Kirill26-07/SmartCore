@@ -21,7 +21,7 @@ public abstract class AbstractController implements IController {
     private final int CONTROLLER_ID;
     private final String AREA_ID;
 
-    protected AbstractController(int controller_id, String area_id) {
+    protected AbstractController(final int controller_id, final String area_id) {
         this.CONTROLLER_ID = controller_id;
         this.AREA_ID = area_id;
     }
@@ -51,7 +51,7 @@ public abstract class AbstractController implements IController {
     }
 
     @Override
-    public abstract void inputData(byte inputValue, HomeArea.AreaPreSettings areaPreSettings);
+    public abstract void inputData(final byte inputValue, final HomeArea.AreaPreSettings areaPreSettings);
 
     public enum controllerStates {
         ON(1),
@@ -61,7 +61,7 @@ public abstract class AbstractController implements IController {
 
         int state;
 
-        controllerStates(int state){
+        controllerStates(final int state){
             this.state = state;
         }
 

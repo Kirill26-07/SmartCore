@@ -1,7 +1,10 @@
 package kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers;
 
-public interface IInputRouter<T1, T2> {
+import kirill.smartCore.smartCore.exceptions.ConnectionFailedException;
 
-    void input(final T1 deviceID, final T2 externalInput);
+public interface IInputRouter {
+
+    void inputSignal() throws ConnectionFailedException;
+    void restartInputConnection();
 
 }
