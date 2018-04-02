@@ -18,25 +18,14 @@ public class InputRouter extends AbstractIOController implements IInputRouter {
     private static final int INPUT_BYTE_LIMIT = 2;
 
     private boolean connected;
-    private byte homeAreaID;
-    private byte controllerID;
-    private byte sensorSignal;
 
     public void inputSignal() throws ConnectionFailedException {
-        try {
-            openInputConnection();
-        } catch (InterruptedException e) {
-            logging.fatal(e.getStackTrace());
-        }
 
-        byte[] inputData;
-        while (connected){
-            inputData = smartHome.bytesSerialRead(INPUT_BYTE_LIMIT);
-            this.homeAreaID = inputData[0];
-            this.controllerID = inputData[1];
-            this.sensorSignal = inputData[2];
-            inputDataRouting();
-        }
+        Thread inputThread_1 = new InputThread();
+        Thread inputThread_2 = new InputThread();
+
+        inputThread_1.start();
+        inputThread_2.start();
 
         if(!connected){
             throw new ConnectionFailedException();
@@ -52,7 +41,7 @@ public class InputRouter extends AbstractIOController implements IInputRouter {
         }
     }
 
-    private void inputDataRouting() {
+    private void inputDataRouting(byte homeAreaID, byte controllerID, byte sensorSignal) {
         String areaID = "";
 
         try {
@@ -77,6 +66,31 @@ public class InputRouter extends AbstractIOController implements IInputRouter {
         this.connected = smartHome.openConnection();
         System.out.println("Connection success: " + connected);
         Thread.sleep(1000);
+    }
+
+    private class InputThread extends Thread {
+
+        @Override
+        public void run(){
+            byte homeAreaID;
+            byte controllerID;
+            byte sensorSignal;
+
+            try {
+                openInputConnection();
+            } catch (InterruptedException e) {
+                logging.fatal(e.getStackTrace());
+            }
+
+            byte[] inputData;
+            while (connected){
+                inputData = smartHome.bytesSerialRead(INPUT_BYTE_LIMIT);
+                homeAreaID = inputData[0];
+                controllerID = inputData[1];
+                sensorSignal = inputData[2];
+                inputDataRouting(homeAreaID, controllerID, sensorSignal);
+            }
+        }
     }
 }
 
