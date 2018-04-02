@@ -16,10 +16,11 @@ public class WaterController extends AbstractController {
     }
 
     @Override
-    public void inputData(final byte inputValue, final HomeArea.AreaPreSettings areaPreSettings) {
+    public boolean inputData(final int inputValue, final HomeArea.AreaPreSettings areaPreSettings) {
         if(inputValue == ALARM){
             switchOf();
         }
+        return true;
     }
 
 }

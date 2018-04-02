@@ -8,20 +8,24 @@ import kirill.smartCore.smartCore.model.HomeArea;
 
 public class Lighting extends AbstractController {
 
-    private static final byte LIGHTING_ON = 1;
-    private static final byte LIGHTING_OFF = 0;
+    private static final int LIGHTING_ON = 1;
+    private static final int LIGHTING_OFF = 0;
 
     public Lighting(final int controller_id, final String area_id) {
         super(controller_id, area_id);
     }
 
     @Override
-    public void inputData(final byte inputValue, final HomeArea.AreaPreSettings areaPreSettings) {
+    public boolean inputData(final int inputValue, final HomeArea.AreaPreSettings areaPreSettings) {
         if(inputValue == LIGHTING_ON && controllerState == LIGHTING_OFF){
             controllerState = controllerStates.ON.getState();
-            switchOn();
-            // Далее необходимо запустить таймер со временем из пресетингов и если с момента последнего
-            // сигнала прошло время указанное в персетинге - switchOff();
+            return true;
+//            switchOn();
+// Далее необходимо запустить таймер со временем из пресетингов и если с момента последнего
+// сигнала прошло время указанное в персетинге - switchOff();
+        }
+        else {
+            return false;
         }
     }
 }

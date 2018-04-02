@@ -6,6 +6,6 @@ public interface IController {
 
     void switchOn();
     void switchOf();
-    void inputData(byte inputValue, HomeArea.AreaPreSettings areaPreSettings);
+    boolean inputData(int inputValue, HomeArea.AreaPreSettings areaPreSettings);
 
 }

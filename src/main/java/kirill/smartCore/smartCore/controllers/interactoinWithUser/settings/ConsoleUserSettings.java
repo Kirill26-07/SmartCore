@@ -8,6 +8,7 @@
 
 package kirill.smartCore.smartCore.controllers.interactoinWithUser.settings;
 
+import kirill.smartCore.smartCore.controllers.AbstractController;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController.ComPortOutputRouter;
 import kirill.smartCore.smartCore.model.IHomeArea;
 import kirill.smartCore.smartCore.model.storage.ExternalCommands;
@@ -76,32 +77,32 @@ public class ConsoleUserSettings {
 
             switch (typesOfAreas) {
                 case "1":
-                    IHomeArea kitchen = new HomeArea(AreasStorage.AreaName.KITCHEN.getName());
+                    IHomeArea<AbstractController> kitchen = new HomeArea<>(AreasStorage.AreaName.KITCHEN.getName());
                     addControllersForAreas(kitchen);
                     AreasStorage.addHomeArea(kitchen);
                     break;
                 case "2":
-                    IHomeArea badRoom = new HomeArea(AreasStorage.AreaName.BAD_ROOM.getName());
+                    IHomeArea<AbstractController> badRoom = new HomeArea<>(AreasStorage.AreaName.BAD_ROOM.getName());
                     addControllersForAreas(badRoom);
                     AreasStorage.addHomeArea(badRoom);
                     break;
                 case "3":
-                    IHomeArea livingRoom = new HomeArea(AreasStorage.AreaName.LIVING_ROOM.getName());
+                    IHomeArea<AbstractController> livingRoom = new HomeArea<>(AreasStorage.AreaName.LIVING_ROOM.getName());
                     addControllersForAreas(livingRoom);
                     AreasStorage.addHomeArea(livingRoom);
                     break;
                 case "4":
-                    IHomeArea lobby = new HomeArea(AreasStorage.AreaName.LOBBY.getName());
+                    IHomeArea<AbstractController> lobby = new HomeArea<>(AreasStorage.AreaName.LOBBY.getName());
                     addControllersForAreas(lobby);
                     AreasStorage.addHomeArea(lobby);
                     break;
                 case "5":
-                    IHomeArea bathroom = new HomeArea(AreasStorage.AreaName.BAD_ROOM.getName());
+                    IHomeArea<AbstractController> bathroom = new HomeArea<>(AreasStorage.AreaName.BAD_ROOM.getName());
                     addControllersForAreas(bathroom);
                     AreasStorage.addHomeArea(bathroom);
                     break;
                 case "6":
-                    IHomeArea toilet = new HomeArea(AreasStorage.AreaName.TOILET.getName());
+                    IHomeArea<AbstractController> toilet = new HomeArea<>(AreasStorage.AreaName.TOILET.getName());
                     addControllersForAreas(toilet);
                     AreasStorage.addHomeArea(toilet);
                     break;
@@ -115,10 +116,11 @@ public class ConsoleUserSettings {
         }
     }
 
-    public static void addControllersForAreas(final IHomeArea homeArea) {
+    public static void addControllersForAreas(final IHomeArea<AbstractController> homeArea) {
 
         String homeAreaID = homeArea.getName();
         outputRouter.output(homeAreaID, ExternalCommands.GET_AVAILABLE_CONTROLLERS);
+
     }
 }
 

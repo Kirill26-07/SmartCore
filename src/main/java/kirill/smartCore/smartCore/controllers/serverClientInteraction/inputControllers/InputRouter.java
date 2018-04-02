@@ -67,7 +67,6 @@ public class InputRouter extends AbstractIOController implements IInputRouter {
         }
     }
 
-
     private void openInputConnection() throws InterruptedException {
         this.connected = smartHome.openConnection();
         System.out.println("Connection success: " + connected);

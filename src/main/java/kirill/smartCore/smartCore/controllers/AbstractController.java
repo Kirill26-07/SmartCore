@@ -51,7 +51,7 @@ public abstract class AbstractController implements IController {
     }
 
     @Override
-    public abstract void inputData(final byte inputValue, final HomeArea.AreaPreSettings areaPreSettings);
+    public abstract boolean inputData(final int inputValue, final HomeArea.AreaPreSettings areaPreSettings);
 
     public enum controllerStates {
         ON(1),

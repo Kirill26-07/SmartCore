@@ -6,73 +6,32 @@
 
 package kirill.smartCore.smartCore.model;
 
-import kirill.smartCore.smartCore.controllers.energyControllers.Lighting;
-import kirill.smartCore.smartCore.controllers.securityControllers.AccessController;
-import kirill.smartCore.smartCore.controllers.securityControllers.GasController;
-import kirill.smartCore.smartCore.controllers.securityControllers.WaterController;
-import kirill.smartCore.smartCore.controllers.energyControllers.ClimateController;
-import kirill.smartCore.smartCore.model.storage.ControllerID;
-
+import kirill.smartCore.smartCore.controllers.AbstractController;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-public class HomeArea implements IHomeArea {
+public class HomeArea<V extends AbstractController> implements IHomeArea<V> {
 
-    private String name;
+    private final String name;
 
-    private Lighting lightingController;
-    private GasController gasController;
-    private WaterController waterController;
-    private AccessController accessController;
-    private ClimateController climateController;
-
-    private AreaPreSettings areaPreSettings = new AreaPreSettings();
+    private Map<Integer, V> areaControllers = new HashMap<>();
+    private final AreaPreSettings areaPreSettings = new AreaPreSettings();
 
     public HomeArea(final String areaName){
         this.name = areaName;
     }
 
     @Override
-    public void inputData(byte controllerID, byte inputData) {
-        if(ControllerID.LIGHTING_ID.getID() == controllerID){
-            this.lightingController.inputData(inputData, areaPreSettings);
-        }
-        else if (ControllerID.GAS_CONTROLLER_ID.getID() == controllerID){
-            this.gasController.inputData(inputData, areaPreSettings);
-        }
-        else if(ControllerID.WATER_CONTROLLER_ID.getID() == controllerID){
-            this.waterController.inputData(inputData, areaPreSettings);
-        }
-        else if(ControllerID.CLIMATE_CONTROLLER_ID.getID() == controllerID){
-            this.climateController.inputData(inputData, areaPreSettings);
-        }
-        else if(ControllerID.ACCESS_CONTROLLER_ID.getID() == controllerID){
-            this.accessController.inputData(inputData, areaPreSettings);
-        }
+    public boolean inputData(final int controllerID, final int inputData) {
+
+        AbstractController controller = areaControllers.get(controllerID);
+        return controller.inputData(inputData, areaPreSettings);
     }
 
     @Override
-    public void setLightingController(final Lighting lightingController) {
-        this.lightingController = lightingController;
-    }
-
-    @Override
-    public void setGasController(final GasController gasController) {
-        this.gasController = gasController;
-    }
-
-    @Override
-    public void setWaterController(final WaterController waterController) {
-        this.waterController = waterController;
-    }
-
-    @Override
-    public void setAccessController(final AccessController accessController) {
-        this.accessController = accessController;
-    }
-
-    @Override
-    public void setClimateController(final ClimateController climateController) {
-        this.climateController = climateController;
+    public void setAreaControllers(final int controllerID, final V controller){
+        areaControllers.put(controllerID, controller);
     }
 
     @Override

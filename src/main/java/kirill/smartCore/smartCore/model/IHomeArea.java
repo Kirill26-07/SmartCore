@@ -1,25 +1,10 @@
 package kirill.smartCore.smartCore.model;
 
-import kirill.smartCore.smartCore.controllers.energyControllers.ClimateController;
-import kirill.smartCore.smartCore.controllers.energyControllers.Lighting;
-import kirill.smartCore.smartCore.controllers.securityControllers.AccessController;
-import kirill.smartCore.smartCore.controllers.securityControllers.GasController;
-import kirill.smartCore.smartCore.controllers.securityControllers.WaterController;
 
-public interface IHomeArea {
+public interface IHomeArea<V> {
 
-    void inputData(byte controllerID, byte inputData);
-
-    void setLightingController(Lighting lightingController);
-
-    void setGasController(GasController gasController);
-
-    void setWaterController(WaterController waterController);
-
-    void setAccessController(AccessController accessController);
-
-    void setClimateController(ClimateController climateController);
-
+    boolean inputData(int controllerID, int inputData);
+    void setAreaControllers(int controllerID, V controller);
     String getName();
 
 }
