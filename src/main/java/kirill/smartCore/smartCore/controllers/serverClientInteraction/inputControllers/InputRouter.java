@@ -21,6 +21,12 @@ public class InputRouter extends AbstractIOController implements IInputRouter {
 
     public void inputSignal() throws ConnectionFailedException {
 
+        try {
+            openInputConnection();
+        } catch (InterruptedException e) {
+            logging.fatal(e.getStackTrace());
+        }
+
         Thread inputThread_1 = new InputThread();
         Thread inputThread_2 = new InputThread();
 
@@ -72,15 +78,10 @@ public class InputRouter extends AbstractIOController implements IInputRouter {
 
         @Override
         public void run(){
+
             byte homeAreaID;
             byte controllerID;
             byte sensorSignal;
-
-            try {
-                openInputConnection();
-            } catch (InterruptedException e) {
-                logging.fatal(e.getStackTrace());
-            }
 
             byte[] inputData;
             while (connected){
