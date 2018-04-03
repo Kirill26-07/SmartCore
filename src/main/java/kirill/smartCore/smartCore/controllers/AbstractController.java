@@ -7,8 +7,8 @@
 
 package kirill.smartCore.smartCore.controllers;
 
+import kirill.smartCore.smartCore.controllers.interactoinWithUser.settings.AreaSettings;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController.ComPortOutputRouter;
-import kirill.smartCore.smartCore.model.HomeArea;
 import kirill.smartCore.smartCore.model.storage.ExternalCommands;
 
 import java.util.Objects;
@@ -51,7 +51,7 @@ public abstract class AbstractController implements IController {
     }
 
     @Override
-    public abstract boolean inputData(final int inputValue, final HomeArea.AreaPreSettings areaPreSettings);
+    public abstract boolean inputData(final int inputValue, final AreaSettings areaPreSettings);
 
     public enum controllerStates {
         ON(1),
