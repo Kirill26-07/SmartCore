@@ -4,7 +4,7 @@
 package kirill.smartCore.smartCore.controllers.energyControllers;
 
 import kirill.smartCore.smartCore.controllers.AbstractController;
-import kirill.smartCore.smartCore.model.HomeArea;
+import kirill.smartCore.smartCore.controllers.interactoinWithUser.settings.AreaSettings;
 
 public class ClimateController extends AbstractController {
 
@@ -13,7 +13,7 @@ public class ClimateController extends AbstractController {
     }
 
     @Override
-    public boolean inputData(final int inputValue, final HomeArea.AreaPreSettings areaPreSettings) {
+    public boolean inputData(final int inputValue, final AreaSettings areaPreSettings) {
 
         if(inputValue >= areaPreSettings.getMAX_TEMP()){
             switchOn();

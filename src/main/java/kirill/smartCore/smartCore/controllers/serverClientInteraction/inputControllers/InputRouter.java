@@ -11,8 +11,6 @@ import kirill.smartCore.smartCore.model.HomeArea;
 import kirill.smartCore.smartCore.model.storage.AreasStorage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.tools.picocli.CommandLine;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -38,34 +36,19 @@ public class InputRouter extends AbstractIOController implements IInputRouter {
             logging.fatal(e.getStackTrace());
         }
 
-        final Future<?> future = EXECUTOR_SERVICE.submit(() -> {
-            byte homeAreaID;
-            byte controllerID;
-            byte sensorSignal;
-
-            byte[] inputData;
-            while (connected){
-                inputData = smartHome.bytesSerialRead(INPUT_BYTE_LIMIT);
-                homeAreaID = inputData[0];
-                controllerID = inputData[1];
-                sensorSignal = inputData[2];
-                inputDataRouting(homeAreaID, controllerID, sensorSignal);
-            }
-        });
+        final Future future = EXECUTOR_SERVICE.submit(new InputStream());
 
         futures.add(future);
 
-        for(Future<?> ft : futures){
+        for (Future ft : futures) {
             try {
                 ft.get();
-            }
-            catch(InterruptedException | ExecutionException e){
+            } catch (InterruptedException | ExecutionException e) {
                 logging.error(e.getStackTrace());
             }
         }
 
-
-        if(!connected){
+        if (!connected) {
             throw new ConnectionFailedException();
         }
     }
@@ -84,17 +67,15 @@ public class InputRouter extends AbstractIOController implements IInputRouter {
 
         try {
             areaID = AreasStorage.getAreaName(homeAreaID);
-        }
-        catch (WrongInputDataException e){
+        } catch (WrongInputDataException e) {
             logging.error("Wrong input value!");
         }
 
-        HomeArea homeArea = (HomeArea)AreasStorage.getHomeArea(areaID);
+        HomeArea homeArea = (HomeArea) AreasStorage.getHomeArea(areaID);
 
-        if(homeArea.getName().equals(AreasStorage.NOT_FOUND)){
-          logging.error("Area is not found!");
-        }
-        else {
+        if (homeArea.getName().equals(AreasStorage.NOT_FOUND)) {
+            logging.error("Area is not found!");
+        } else {
             homeArea.inputData(controllerID, sensorSignal);
         }
     }
@@ -103,6 +84,27 @@ public class InputRouter extends AbstractIOController implements IInputRouter {
         this.connected = smartHome.openConnection();
         System.out.println("Connection success: " + connected);
         Thread.sleep(1000);
+    }
+
+    private class InputStream implements Runnable {
+
+        private byte homeAreaID;
+        private byte controllerID;
+        private byte sensorSignal;
+
+        @Override
+        public void run() {
+
+            byte[] inputData;
+
+            while (connected){
+                inputData = smartHome.bytesSerialRead(INPUT_BYTE_LIMIT);
+                homeAreaID = inputData[0];
+                controllerID = inputData[1];
+                sensorSignal = inputData[2];
+                inputDataRouting(homeAreaID, controllerID, sensorSignal);
+            }
+        }
     }
 }
 

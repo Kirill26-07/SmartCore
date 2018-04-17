@@ -5,6 +5,7 @@
 package kirill.smartCore.smartCore.controllers.securityControllers;
 
 import kirill.smartCore.smartCore.controllers.AbstractController;
+import kirill.smartCore.smartCore.controllers.interactoinWithUser.settings.AreaSettings;
 import kirill.smartCore.smartCore.model.HomeArea;
 
 public class WaterController extends AbstractController {
@@ -16,7 +17,7 @@ public class WaterController extends AbstractController {
     }
 
     @Override
-    public boolean inputData(final int inputValue, final HomeArea.AreaPreSettings areaPreSettings) {
+    public boolean inputData(final int inputValue, final AreaSettings areaPreSettings) {
         if(inputValue == ALARM){
             switchOf();
         }

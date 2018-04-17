@@ -4,7 +4,8 @@
 package kirill.smartCore.smartCore.controllers.energyControllers;
 
 import kirill.smartCore.smartCore.controllers.AbstractController;
-import kirill.smartCore.smartCore.model.HomeArea;
+import kirill.smartCore.smartCore.controllers.interactoinWithUser.settings.AreaSettings;
+
 
 public class Lighting extends AbstractController {
 
@@ -16,7 +17,7 @@ public class Lighting extends AbstractController {
     }
 
     @Override
-    public boolean inputData(final int inputValue, final HomeArea.AreaPreSettings areaPreSettings) {
+    public boolean inputData(final int inputValue, final AreaSettings areaPreSettings) {
         if(inputValue == LIGHTING_ON && controllerState == LIGHTING_OFF){
             controllerState = controllerStates.ON.getState();
             return true;
