@@ -20,7 +20,6 @@ import java.util.concurrent.Future;
 
 public class InputRouter extends AbstractIOController implements IInputRouter {
 
-    private static final ExecutorService EXECUTOR_SERVICE = Executors.newFixedThreadPool(3);
     private static final Logger logging = LogManager.getLogger(InputRouter.class.getName());
     private static final int INPUT_BYTE_LIMIT = 2;
 
@@ -28,25 +27,14 @@ public class InputRouter extends AbstractIOController implements IInputRouter {
 
     public void inputSignal() throws ConnectionFailedException {
 
-        final List<Future> futures = new ArrayList<>();
-
         try {
             openInputConnection();
         } catch (InterruptedException e) {
             logging.fatal(e.getStackTrace());
         }
 
-        final Future future = EXECUTOR_SERVICE.submit(new InputStream());
-
-        futures.add(future);
-
-        for (Future ft : futures) {
-            try {
-                ft.get();
-            } catch (InterruptedException | ExecutionException e) {
-                logging.error(e.getStackTrace());
-            }
-        }
+        final Thread inputThread = new Thread(new InputStream());
+        inputThread.start();
 
         if (!connected) {
             throw new ConnectionFailedException();

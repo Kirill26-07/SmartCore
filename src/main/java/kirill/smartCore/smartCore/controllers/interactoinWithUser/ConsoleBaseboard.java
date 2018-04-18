@@ -34,6 +34,8 @@ public class ConsoleBaseboard implements IUserInteraction {
             logger.error("Connection error, restart system!");
             inputRouter.restartInputConnection();
         }
+
+        userMenu();
     }
 
     @Override
