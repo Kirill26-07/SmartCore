@@ -15,18 +15,15 @@ public class UserStorage {
     public static final String NOT_FOUND = "NOT FOUND";
 
     public static void saveNewUser(final User newUser) {
-
         String userName = newUser.getUserName();
         userStorage.put(userName, newUser);
     }
 
     public static User getUser(final String userName) {
-
         return userStorage.getOrDefault(userName, new User(NOT_FOUND, ""));
     }
 
     public static Map<String, User> getUserStorage() {
-
         return userStorage;
     }
 }

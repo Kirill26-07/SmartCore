@@ -26,35 +26,35 @@ public class AreaSettings {
     }
 
 
-    public double getMAX_TEMP() {
+    public double getMaxTemp() {
         return MAX_TEMP;
     }
 
-    public double getMIN_TEMP() {
+    public double getMinTemp() {
         return MIN_TEMP;
     }
 
-    public int getMAX_HUMIDITY() {
+    public int getMaxHumidity() {
         return MAX_HUMIDITY;
     }
 
-    public int getMIN_HUMIDITY() {
+    public int getMinHumidity() {
         return MIN_HUMIDITY;
     }
 
-    public int getMAX_CO2() {
+    public int getMaxCO2() {
         return MAX_CO2;
     }
 
-    public boolean isAUTOMATIC_ELECTRIC_SWITCH() {
+    public boolean isAutomaticElectricSwitch() {
         return AUTOMATIC_ELECTRIC_SWITCH;
     }
 
-    public boolean isAUTOMATIC_LIGHTNING_SWITCH() {
+    public boolean isAutomaticLightningSwitch() {
         return AUTOMATIC_LIGHTNING_SWITCH;
     }
 
-    public int getLIGHTING_DELAY_TIME() {
+    public int getLightningDelayTime() {
         return LIGHTING_DELAY_TIME;
     }
 
@@ -71,43 +71,43 @@ public class AreaSettings {
         private int lighting_delay_time;
 
 
-        public AreaSettingsBuilder setMAX_TEMP(double max_temp) {
-            this.max_temp = max_temp;
+        public AreaSettingsBuilder setMaxTemp(final double userMax_temp) {
+            this.max_temp = userMax_temp;
             return this;
         }
 
-        public AreaSettingsBuilder setMIN_TEMP(double min_temp) {
-            this.min_temp = min_temp;
+        public AreaSettingsBuilder setMinTemp(final double userMin_temp) {
+            this.min_temp = userMin_temp;
             return this;
         }
 
-        public AreaSettingsBuilder setMAX_HUMIDITY(int max_humidity) {
-            this.max_humidity = max_humidity;
+        public AreaSettingsBuilder setMaxHumidity(final int userMax_humidity) {
+            this.max_humidity = userMax_humidity;
             return this;
         }
 
-        public AreaSettingsBuilder setMIN_HUMIDITY(int min_humidity) {
-            this.min_humidity = min_humidity;
+        public AreaSettingsBuilder setMinHumidity(final int userMin_humidity) {
+            this.min_humidity = userMin_humidity;
             return this;
         }
 
-        public AreaSettingsBuilder setMAX_CO2(int max_co2) {
-            this.max_co2 = max_co2;
+        public AreaSettingsBuilder setMaxCO2(final int userMax_co2) {
+            this.max_co2 = userMax_co2;
             return this;
         }
 
-        public AreaSettingsBuilder setAUTOMATIC_ELECTRIC_SWITCH(boolean automatic_electric_switch) {
-            this.automatic_electric_switch = automatic_electric_switch;
+        public AreaSettingsBuilder setAutomaticElectricSwitch(final boolean userAutomatic_electric_switch) {
+            this.automatic_electric_switch = userAutomatic_electric_switch;
             return this;
         }
 
-        public AreaSettingsBuilder setAUTOMATIC_LIGHTNING_SWITCH(boolean automatic_lightning_switch) {
-            this.automatic_lightning_switch = automatic_lightning_switch;
+        public AreaSettingsBuilder setAutomaticLightningSwitch(final boolean userAutomatic_lightning_switch) {
+            this.automatic_lightning_switch = userAutomatic_lightning_switch;
             return this;
         }
 
-        public AreaSettingsBuilder setLIGHTING_DELAY_TIME(int lighting_delay_time) {
-            this.lighting_delay_time = lighting_delay_time;
+        public AreaSettingsBuilder setLightningDelayTime(final int userLighting_delay_time) {
+            this.lighting_delay_time = userLighting_delay_time;
             return this;
         }
 

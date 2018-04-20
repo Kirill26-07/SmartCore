@@ -10,10 +10,7 @@ public class ConsoleReader {
 
     private Scanner scanner = new Scanner(System.in);
 
-    public String consoleInput(){
-
+    public String consoleInput() {
         return scanner.nextLine().trim();
-
     }
-
 }

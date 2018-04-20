@@ -48,7 +48,6 @@ public class ConsoleUserSettings {
             }
         }
         while (!passwordConfirm);
-
     }
 
     public static void addNewAreas() {
@@ -117,10 +116,8 @@ public class ConsoleUserSettings {
     }
 
     private static void addControllersForAreas(final IHomeArea<AbstractController> homeArea) {
-
         String homeAreaID = homeArea.getName();
         outputRouter.output(homeAreaID, ExternalCommands.GET_AVAILABLE_CONTROLLERS);
-
     }
 }
 

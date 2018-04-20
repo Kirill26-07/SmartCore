@@ -15,15 +15,13 @@ public class ClimateController extends AbstractController {
     @Override
     public boolean inputData(final int inputValue, final AreaSettings areaPreSettings) {
 
-        if(inputValue >= areaPreSettings.getMAX_TEMP()){
+        if (inputValue >= areaPreSettings.getMaxTemp()) {
             switchOn();
             return true;
-        }
-        else if(inputValue <= areaPreSettings.getMIN_TEMP()){
+        } else if (inputValue <= areaPreSettings.getMinTemp()) {
             switchOf();
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }

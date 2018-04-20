@@ -21,9 +21,9 @@ public abstract class AbstractController implements IController {
     private final int CONTROLLER_ID;
     private final String AREA_ID;
 
-    protected AbstractController(final int controller_id, final String area_id) {
-        this.CONTROLLER_ID = controller_id;
-        this.AREA_ID = area_id;
+    protected AbstractController(final int inputController_id, final String inputAreaID) {
+        this.CONTROLLER_ID = inputController_id;
+        this.AREA_ID = inputAreaID;
     }
 
     @Override
@@ -36,7 +36,6 @@ public abstract class AbstractController implements IController {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(CONTROLLER_ID);
     }
 
@@ -59,9 +58,9 @@ public abstract class AbstractController implements IController {
         ALARM(2),
         NOT_AVALIABLE(3);
 
-        int state;
+        private int state;
 
-        controllerStates(final int state){
+        controllerStates(final int state) {
             this.state = state;
         }
 

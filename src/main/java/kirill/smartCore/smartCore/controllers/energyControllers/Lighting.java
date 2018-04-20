@@ -18,14 +18,13 @@ public class Lighting extends AbstractController {
 
     @Override
     public boolean inputData(final int inputValue, final AreaSettings areaPreSettings) {
-        if(inputValue == LIGHTING_ON && controllerState == LIGHTING_OFF){
+        if (inputValue == LIGHTING_ON && controllerState == LIGHTING_OFF) {
             controllerState = controllerStates.ON.getState();
             return true;
 //            switchOn();
 // Далее необходимо запустить таймер со временем из пресетингов и если с момента последнего
 // сигнала прошло время указанное в персетинге - switchOff();
-        }
-        else {
+        } else {
             return false;
         }
     }

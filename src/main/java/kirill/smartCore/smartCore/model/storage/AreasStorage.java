@@ -17,21 +17,18 @@ public class AreasStorage {
     public static final String NOT_FOUND = "NOT FOUND";
 
     public static boolean addHomeArea(final IHomeArea homeArea) {
-
         String homeAreaName = homeArea.getName();
 
-        if(homeAreas.containsKey(homeAreaName)){
+        if (homeAreas.containsKey(homeAreaName)) {
             System.out.println("This area has already been created");
             return false;
-        }
-        else {
+        } else {
             homeAreas.put(homeAreaName, homeArea);
             return true;
         }
     }
 
     public static IHomeArea getHomeArea(final String homeAreaName) {
-
         return homeAreas.getOrDefault(homeAreaName, new HomeArea(NOT_FOUND));
     }
 
@@ -63,7 +60,6 @@ public class AreasStorage {
     }
 
     public enum AreaName {
-
         KITCHEN("Kitchen"),
         BAD_ROOM("Bad room"),
         LIVING_ROOM("Living room"),
@@ -71,9 +67,9 @@ public class AreasStorage {
         BATHROOM("Bathroom"),
         TOILET("Toilet");
 
-        String name;
+        private String name;
 
-        AreaName(String name){
+        AreaName(final String name) {
             this.name = name;
         }
 

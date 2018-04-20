@@ -28,7 +28,7 @@ public class ConsoleBaseboard implements IUserInteraction {
 
     private static final Logger logger = LogManager.getLogger(ConsoleBaseboard.class.getName());
 
-    static{
+    static {
         userMenuBuilder.append("\n==USER MENU==\n")
                 .append("This is user menu, for navigate on this, please input specific values:")
                 .append("Add new areas - 1")
@@ -39,7 +39,7 @@ public class ConsoleBaseboard implements IUserInteraction {
     }
 
     @Override
-    public void startSystem() {
+    public final void startSystem() {
         try {
             inputRouter.inputSignal();
         } catch (ConnectionFailedException e) {
@@ -54,15 +54,13 @@ public class ConsoleBaseboard implements IUserInteraction {
     public void firstUserGreeting() {
         consolePrinter.output(String.format("Welcome to Your Smart Home system.\nMy name is %s, and I am your home assistant\n", SYSTEM_Name));
 
-        if(isFirstStart()){
+        if (isFirstStart()) {
             firstStartSystem();
-        }
-        else {
-            if(authorization()){
+        } else {
+            if (authorization()) {
                 consolePrinter.output("Success!");
                 startSystem();
-            }
-            else{
+            } else {
                 consolePrinter.output("You input incorrect values!");
                 userConsoleMenu.userMenu();
             }
@@ -82,7 +80,7 @@ public class ConsoleBaseboard implements IUserInteraction {
         startSystem();
     }
 
-    private boolean authorization(){
+    private boolean authorization() {
         consolePrinter.output("Please, input your registration name:");
         String userName = consoleReader.consoleInput();
 
@@ -91,12 +89,13 @@ public class ConsoleBaseboard implements IUserInteraction {
 
         User userAuthorization = UserStorage.getUser(userName);
 
-        if(userAuthorization.getUserName().equals(UserStorage.NOT_FOUND)){
+        if (userAuthorization.getUserName().equals(UserStorage.NOT_FOUND)) {
             logger.error("User is NOT FOUND!");
             return false;
         }
 
-        return userAuthorization.getUserName().equals(userName) && userAuthorization.getUserPassword().equals(password);
+        return userAuthorization.getUserName().equals(userName)
+                && userAuthorization.getUserPassword().equals(password);
     }
 
     private class UserConsoleMenu {
@@ -107,8 +106,8 @@ public class ConsoleBaseboard implements IUserInteraction {
         private final String AREA_SETTINGS = "4";
         private final String SYSTEM_SHUTDOWN = "0";
 
-        boolean systemWorking = true;
-        String userInput;
+        private boolean systemWorking = true;
+        private String userInput;
 
         private void userMenu() {
 

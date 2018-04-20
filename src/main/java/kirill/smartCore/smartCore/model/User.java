@@ -23,49 +23,39 @@ public class User {
     private String userPassword;
 
 
-    public User(final String userName, final String userPassword){
-
-        this.userName = userName;
-        this.userPassword = userPassword;
-
+    public User(final String name, final String password) {
+        this.userName = name;
+        this.userPassword = password;
     }
 
-    public boolean changePassword(final String userName, final String currentUserPassword){
-
-        if(this.userName.equals(userName) && this.userPassword.equals(currentUserPassword)){
-
+    public final void changePassword(final String currentUserName, final String currentUserPassword) {
+        if (this.userName.equals(currentUserName) && this.userPassword.equals(currentUserPassword)) {
             consolePrinter.output("Please, input your new password: ");
             this.userPassword = consoleReader.consoleInput().trim();
-            return true;
-        }
-        else {
-
+        } else {
             consolePrinter.output("Incorrect user name or password!");
-            return false;
         }
-
     }
 
-    public String getUserName() {
+    public final String getUserName() {
         return userName;
     }
 
-    public String getUserPassword() {
+    public final String getUserPassword() {
         return userPassword;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return Objects.equals(userName, user.userName) &&
-                Objects.equals(userPassword, user.userPassword);
+        return Objects.equals(userName, user.userName)
+                && Objects.equals(userPassword, user.userPassword);
     }
 
     @Override
     public int hashCode() {
-
         return Objects.hash(userName, userPassword);
     }
 

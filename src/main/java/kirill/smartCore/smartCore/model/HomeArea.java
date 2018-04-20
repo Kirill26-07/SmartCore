@@ -8,7 +8,6 @@ package kirill.smartCore.smartCore.model;
 
 import kirill.smartCore.smartCore.controllers.AbstractController;
 import kirill.smartCore.smartCore.controllers.interactoinWithUser.settings.AreaSettings;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -20,23 +19,22 @@ public class HomeArea<V extends AbstractController> implements IHomeArea<V> {
     private Map<Integer, V> areaControllers = new HashMap<>();
     private AreaSettings areaPreSettings;
 
-    public HomeArea(final String areaName){
+    public HomeArea(final String areaName) {
         this.name = areaName;
     }
 
-    public void newAreaSettings(){
+    public void newAreaSettings() {
 
     }
 
     @Override
     public boolean inputData(final int controllerID, final int inputData) {
-
         AbstractController controller = areaControllers.get(controllerID);
         return controller.inputData(inputData, areaPreSettings);
     }
 
     @Override
-    public void setAreaControllers(final int controllerID, final V controller){
+    public void setAreaControllers(final int controllerID, final V controller) {
         areaControllers.put(controllerID, controller);
     }
 

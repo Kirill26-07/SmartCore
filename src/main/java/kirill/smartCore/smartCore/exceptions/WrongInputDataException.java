@@ -2,11 +2,11 @@ package kirill.smartCore.smartCore.exceptions;
 
 public class WrongInputDataException extends Exception {
 
-    public WrongInputDataException(){
+    public WrongInputDataException() {
         super();
     }
 
-    public WrongInputDataException(String s){
+    public WrongInputDataException(final String s) {
         super(s);
     }
 }

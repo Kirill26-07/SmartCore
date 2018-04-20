@@ -15,7 +15,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 
-
 public class InputRouter extends AbstractIOController implements IInputRouter {
 
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
@@ -24,8 +23,7 @@ public class InputRouter extends AbstractIOController implements IInputRouter {
 
     private static boolean connected;
 
-    public void inputSignal() throws ConnectionFailedException {
-
+    public final void inputSignal() throws ConnectionFailedException {
         try {
             openInputConnection();
         } catch (InterruptedException e) {
@@ -48,7 +46,7 @@ public class InputRouter extends AbstractIOController implements IInputRouter {
         }
     }
 
-    private void inputDataRouting(byte homeAreaID, byte controllerID, byte sensorSignal) {
+    private void inputDataRouting(final byte homeAreaID, final byte controllerID, final byte sensorSignal) {
         String areaID = "";
 
         try {
@@ -57,7 +55,7 @@ public class InputRouter extends AbstractIOController implements IInputRouter {
             logging.error("Wrong input value!");
         }
 
-        HomeArea homeArea = (HomeArea) AreasStorage.getHomeArea(areaID);
+        final HomeArea homeArea = (HomeArea) AreasStorage.getHomeArea(areaID);
 
         if (homeArea.getName().equals(AreasStorage.NOT_FOUND)) {
             logging.error("Area is not found!");
@@ -72,7 +70,7 @@ public class InputRouter extends AbstractIOController implements IInputRouter {
         Thread.sleep(1000);
     }
 
-    public static void closeConnection(){
+    public static void closeConnection() {
         smartHome.closeConnection();
         connected = false;
     }
@@ -86,10 +84,9 @@ public class InputRouter extends AbstractIOController implements IInputRouter {
 
         @Override
         public void run() {
-
             byte[] inputData;
 
-            while (connected){
+            while (connected) {
                 inputData = smartHome.bytesSerialRead(INPUT_BYTE_LIMIT);
                 homeAreaID = inputData[0];
                 controllerID = inputData[1];

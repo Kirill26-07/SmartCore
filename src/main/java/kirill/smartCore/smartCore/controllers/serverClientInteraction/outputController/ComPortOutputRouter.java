@@ -9,7 +9,6 @@ import kirill.smartCore.smartCore.model.storage.ExternalCommands;
 
 public class ComPortOutputRouter extends AbstractIOController {
 
-
     @Override
     public void output(final ExternalCommands command) {
 
@@ -21,7 +20,7 @@ public class ComPortOutputRouter extends AbstractIOController {
     }
 
     @Override
-    public void output(final String areaID, final int controllerID, ExternalCommands command) {
+    public void output(final String areaID, final int controllerID, final ExternalCommands command) {
 
     }
 }

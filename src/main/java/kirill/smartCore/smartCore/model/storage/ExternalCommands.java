@@ -9,17 +9,17 @@ public enum ExternalCommands {
     ON(1),
     OFF(0);
 
-    int command;
+    private int command;
 
-    ExternalCommands(){
+    ExternalCommands() {
 
     }
 
-    ExternalCommands(int command){
-        this.command = command;
+    ExternalCommands(final int commandForController) {
+        this.command = commandForController;
     }
 
     public int getCommand() {
-        return command;
+        return this.command;
     }
 }
