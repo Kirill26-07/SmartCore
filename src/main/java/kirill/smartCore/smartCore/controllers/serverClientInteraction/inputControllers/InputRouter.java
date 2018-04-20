@@ -11,19 +11,18 @@ import kirill.smartCore.smartCore.model.HomeArea;
 import kirill.smartCore.smartCore.model.storage.AreasStorage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+
+
 
 public class InputRouter extends AbstractIOController implements IInputRouter {
 
+    private final ExecutorService executorService = Executors.newSingleThreadExecutor();
     private static final Logger logging = LogManager.getLogger(InputRouter.class.getName());
     private static final int INPUT_BYTE_LIMIT = 2;
 
-    private boolean connected;
+    private static boolean connected;
 
     public void inputSignal() throws ConnectionFailedException {
 
@@ -33,8 +32,7 @@ public class InputRouter extends AbstractIOController implements IInputRouter {
             logging.fatal(e.getStackTrace());
         }
 
-        final Thread inputThread = new Thread(new InputStream());
-        inputThread.start();
+        executorService.submit(new InputStream());
 
         if (!connected) {
             throw new ConnectionFailedException();
@@ -69,10 +67,16 @@ public class InputRouter extends AbstractIOController implements IInputRouter {
     }
 
     private void openInputConnection() throws InterruptedException {
-        this.connected = smartHome.openConnection();
+        connected = smartHome.openConnection();
         System.out.println("Connection success: " + connected);
         Thread.sleep(1000);
     }
+
+    public static void closeConnection(){
+        smartHome.closeConnection();
+        connected = false;
+    }
+
 
     private class InputStream implements Runnable {
 

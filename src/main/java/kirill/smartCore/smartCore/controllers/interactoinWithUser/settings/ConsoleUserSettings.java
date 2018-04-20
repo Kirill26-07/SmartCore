@@ -116,7 +116,7 @@ public class ConsoleUserSettings {
         }
     }
 
-    public static void addControllersForAreas(final IHomeArea<AbstractController> homeArea) {
+    private static void addControllersForAreas(final IHomeArea<AbstractController> homeArea) {
 
         String homeAreaID = homeArea.getName();
         outputRouter.output(homeAreaID, ExternalCommands.GET_AVAILABLE_CONTROLLERS);

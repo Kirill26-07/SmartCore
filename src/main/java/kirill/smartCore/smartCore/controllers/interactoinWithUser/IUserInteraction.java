@@ -9,7 +9,4 @@ public interface IUserInteraction {
     void firstStartSystem() throws InterruptedException;
 
     void startSystem() throws InterruptedException;
-
-    void userMenu();
-
 }

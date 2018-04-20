@@ -6,7 +6,6 @@
 package kirill.smartCore.smartCore.controllers.interactoinWithUser;
 
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers.InputRouter;
-import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController.ComPortOutputRouter;
 import kirill.smartCore.smartCore.controllers.interactoinWithUser.settings.ConsoleUserSettings;
 import kirill.smartCore.smartCore.exceptions.ConnectionFailedException;
 import kirill.smartCore.smartCore.model.User;
@@ -19,12 +18,25 @@ import org.apache.logging.log4j.Logger;
 public class ConsoleBaseboard implements IUserInteraction {
 
     private static final String SYSTEM_Name = "<<YUI>>";
+
     private final ConsolePrinter consolePrinter = new ConsolePrinter();
     private final ConsoleReader consoleReader = new ConsoleReader();
     private static final InputRouter inputRouter = new InputRouter();
-    private static final ComPortOutputRouter comOutputRouter = new ComPortOutputRouter();
+    private final UserConsoleMenu userConsoleMenu = new UserConsoleMenu();
+
+    private static StringBuilder userMenuBuilder = new StringBuilder();
 
     private static final Logger logger = LogManager.getLogger(ConsoleBaseboard.class.getName());
+
+    static{
+        userMenuBuilder.append("\n==USER MENU==\n")
+                .append("This is user menu, for navigate on this, please input specific values:")
+                .append("Add new areas - 1")
+                .append("Change your password - 2")
+                .append("Add new user - 3")
+                .append("Add area settings - 4")
+                .append("System ShutDown - 0");
+    }
 
     @Override
     public void startSystem() {
@@ -35,7 +47,7 @@ public class ConsoleBaseboard implements IUserInteraction {
             inputRouter.restartInputConnection();
         }
 
-        userMenu();
+        userConsoleMenu.userMenu();
     }
 
     @Override
@@ -52,7 +64,7 @@ public class ConsoleBaseboard implements IUserInteraction {
             }
             else{
                 consolePrinter.output("You input incorrect values!");
-                userMenu();
+                userConsoleMenu.userMenu();
             }
         }
     }
@@ -70,11 +82,6 @@ public class ConsoleBaseboard implements IUserInteraction {
         startSystem();
     }
 
-    @Override
-    public void userMenu() {
-
-    }
-
     private boolean authorization(){
         consolePrinter.output("Please, input your registration name:");
         String userName = consoleReader.consoleInput();
@@ -90,5 +97,55 @@ public class ConsoleBaseboard implements IUserInteraction {
         }
 
         return userAuthorization.getUserName().equals(userName) && userAuthorization.getUserPassword().equals(password);
+    }
+
+    private class UserConsoleMenu {
+
+        private final String NEW_AREA = "1";
+        private final String CHANGE_PASSWORD = "2";
+        private final String NEW_USER = "3";
+        private final String AREA_SETTINGS = "4";
+        private final String SYSTEM_SHUTDOWN = "0";
+
+        boolean systemWorking = true;
+        String userInput;
+
+        private void userMenu() {
+
+            while (systemWorking) {
+                consolePrinter.output(userMenuBuilder);
+                userInput = consoleReader.consoleInput().trim();
+
+                switch (userInput) {
+                    case NEW_AREA: {
+                        ConsoleUserSettings.addNewAreas();
+                        break;
+                    }
+                    case CHANGE_PASSWORD: {
+                        consolePrinter.output("\nInput user name:");
+                        String currentUserName = consoleReader.consoleInput();
+                        consolePrinter.output("\nInput your current password:");
+                        String currentPassword = consoleReader.consoleInput();
+
+                        User currentUser = UserStorage.getUser(currentUserName);
+                        currentUser.changePassword(currentUserName, currentPassword);
+                        break;
+                    }
+                    case NEW_USER: {
+                        ConsoleUserSettings.createNewUser();
+                        break;
+                    }
+                    case AREA_SETTINGS: {
+                        consolePrinter.output("This function doesn't realized yet!");
+                        break;
+                    }
+                    case SYSTEM_SHUTDOWN: {
+                        systemWorking = false;
+                        InputRouter.closeConnection();
+                        break;
+                    }
+                }
+            }
+        }
     }
 }
