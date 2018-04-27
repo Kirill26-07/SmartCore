@@ -18,5 +18,4 @@ class AreasStorageTest {
 
         assertFalse(AreasStorage.addHomeArea(testArea));
     }
-
 }

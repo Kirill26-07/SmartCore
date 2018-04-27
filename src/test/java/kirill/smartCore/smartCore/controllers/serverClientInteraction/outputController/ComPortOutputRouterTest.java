@@ -2,7 +2,6 @@ package kirill.smartCore.smartCore.controllers.serverClientInteraction.outputCon
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class ComPortOutputRouterTest {
 

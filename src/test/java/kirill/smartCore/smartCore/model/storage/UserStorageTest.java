@@ -14,13 +14,12 @@ class UserStorageTest {
     private User testUser = new User(testUserName, testUserPassword);
 
     @BeforeEach
-    void addTestUser(){
+    void addTestUser() {
         UserStorage.saveNewUser(testUser);
     }
 
     @Test
     void saveNewUser() {
-
         assertFalse(UserStorage.getUserStorage().isEmpty());
 
         UserStorage.getUserStorage().clear();
@@ -37,5 +36,4 @@ class UserStorageTest {
         newTestUser = UserStorage.getUser(invalidUser);
         assertEquals("NOT FOUND", newTestUser.toString());
     }
-
 }

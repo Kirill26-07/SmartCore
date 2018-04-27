@@ -31,7 +31,6 @@ class HomeAreaTest {
     // This test need some code changes!
     @Test
     void inputData() {
-
         assertFalse(testArea.inputData(lightingID, INPUT_SIGNAL));
         assertTrue(testArea.inputData(lightingID, INPUT_SIGNAL_1));
 
