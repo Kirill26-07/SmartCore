@@ -18,7 +18,7 @@ import java.util.concurrent.Executors;
 public class InputRouter extends AbstractIOController implements IInputRouter {
 
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
-    private static final Logger logging = LogManager.getLogger(InputRouter.class.getName());
+    private static final Logger logging = LogManager.getLogger(InputRouter.class);
     private static final int INPUT_BYTE_LIMIT = 2;
 
     private static boolean connected;
@@ -33,6 +33,7 @@ public class InputRouter extends AbstractIOController implements IInputRouter {
         executorService.submit(new InputStream());
 
         if (!connected) {
+            logging.error(new ConnectionFailedException());
             throw new ConnectionFailedException();
         }
     }

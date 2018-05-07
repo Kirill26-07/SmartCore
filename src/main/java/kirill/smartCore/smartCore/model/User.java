@@ -11,10 +11,9 @@ package kirill.smartCore.smartCore.model;
 
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.inputControllers.ConsoleReader;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController.ConsolePrinter;
-
 import java.util.Objects;
 
-public class User {
+public class User implements Comparable<User> {
 
     private ConsolePrinter consolePrinter = new ConsolePrinter();
     private ConsoleReader consoleReader = new ConsoleReader();
@@ -62,5 +61,10 @@ public class User {
     @Override
     public String toString() {
         return userName;
+    }
+
+    @Override
+    public int compareTo(User user) {
+        return this.userName.compareTo(user.getUserName());
     }
 }

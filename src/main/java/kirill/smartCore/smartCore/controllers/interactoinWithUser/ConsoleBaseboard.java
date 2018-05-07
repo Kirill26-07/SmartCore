@@ -17,12 +17,12 @@ import org.apache.logging.log4j.Logger;
 
 public class ConsoleBaseboard implements IUserInteraction {
 
-    private static final String SYSTEM_Name = "<<YUI>>";
-
     private final ConsolePrinter consolePrinter = new ConsolePrinter();
     private final ConsoleReader consoleReader = new ConsoleReader();
     private static final InputRouter inputRouter = new InputRouter();
     private final UserConsoleMenu userConsoleMenu = new UserConsoleMenu();
+
+    private static final String SYSTEM_Name = "<<YUI>>";
 
     private static StringBuilder userMenuBuilder = new StringBuilder();
 
@@ -46,7 +46,6 @@ public class ConsoleBaseboard implements IUserInteraction {
             logger.error("Connection error, restart system!");
             inputRouter.restartInputConnection();
         }
-
         userConsoleMenu.userMenu();
     }
 
@@ -59,6 +58,7 @@ public class ConsoleBaseboard implements IUserInteraction {
         } else {
             if (authorization()) {
                 consolePrinter.output("Success!");
+                logger.info("authorization success");
                 startSystem();
             } else {
                 consolePrinter.output("You input incorrect values!");
@@ -90,7 +90,7 @@ public class ConsoleBaseboard implements IUserInteraction {
         User userAuthorization = UserStorage.getUser(userName);
 
         if (userAuthorization.getUserName().equals(UserStorage.NOT_FOUND)) {
-            logger.error("User is NOT FOUND!");
+            logger.info("User is NOT FOUND!");
             return false;
         }
 

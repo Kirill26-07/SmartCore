@@ -53,7 +53,6 @@ public class HomeArea<V extends AbstractController> implements IHomeArea<V> {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(name);
     }
 }

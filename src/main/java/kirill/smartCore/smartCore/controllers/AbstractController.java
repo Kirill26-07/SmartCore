@@ -10,7 +10,6 @@ package kirill.smartCore.smartCore.controllers;
 import kirill.smartCore.smartCore.controllers.interactoinWithUser.settings.AreaSettings;
 import kirill.smartCore.smartCore.controllers.serverClientInteraction.outputController.ComPortOutputRouter;
 import kirill.smartCore.smartCore.model.storage.ExternalCommands;
-
 import java.util.Objects;
 
 public abstract class AbstractController implements IController {

@@ -16,7 +16,7 @@ public abstract class AbstractIOController implements IOutputRouter {
     private static final String SERIAL_PORT = "/dev/cu.usbmodem1411";
     private static final int SERIAL_SPEED = 9600;
 
-    protected static Arduino smartHome = new Arduino(SERIAL_PORT, SERIAL_SPEED);
+    protected static final Arduino smartHome = new Arduino(SERIAL_PORT, SERIAL_SPEED);
 
     @Override
     public void output(final ExternalCommands command) {
