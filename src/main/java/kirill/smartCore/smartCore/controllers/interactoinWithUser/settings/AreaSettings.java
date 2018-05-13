@@ -58,7 +58,7 @@ public class AreaSettings {
         return LIGHTING_DELAY_TIME;
     }
 
-
+    // Class Builder
     public class AreaSettingsBuilder {
 
         private double max_temp;

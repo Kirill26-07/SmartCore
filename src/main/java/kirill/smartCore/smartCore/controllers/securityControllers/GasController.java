@@ -6,7 +6,7 @@ package kirill.smartCore.smartCore.controllers.securityControllers;
 import kirill.smartCore.smartCore.controllers.AbstractController;
 import kirill.smartCore.smartCore.controllers.interactoinWithUser.settings.AreaSettings;
 
-public class GasController extends AbstractController {
+public class GasController extends AbstractController implements IAlarming {
 
     private static final byte ALARM = 9;
 
@@ -20,5 +20,10 @@ public class GasController extends AbstractController {
             switchOf();
         }
         return true;
+    }
+
+    @Override
+    public void alarm() {
+        System.out.println("Gas Alarm"); // for testing
     }
 }

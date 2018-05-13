@@ -1,13 +1,12 @@
 /**
  * Класс-контроллер, реализует функции по контролю и управлению водными системами
  */
-
 package kirill.smartCore.smartCore.controllers.securityControllers;
 
 import kirill.smartCore.smartCore.controllers.AbstractController;
 import kirill.smartCore.smartCore.controllers.interactoinWithUser.settings.AreaSettings;
 
-public class WaterController extends AbstractController {
+public class WaterController extends AbstractController implements IAlarming {
 
     private static final byte ALARM = 9;
 
@@ -21,5 +20,10 @@ public class WaterController extends AbstractController {
             switchOf();
         }
         return true;
+    }
+
+    @Override
+    public void alarm() {
+        System.out.println("Water Alarm"); // for testing!
     }
 }

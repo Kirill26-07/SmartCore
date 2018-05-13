@@ -7,7 +7,6 @@ package kirill.smartCore.smartCore.model.storage;
 import kirill.smartCore.smartCore.exceptions.WrongInputDataException;
 import kirill.smartCore.smartCore.model.HomeArea;
 import kirill.smartCore.smartCore.model.IHomeArea;
-
 import java.util.HashMap;
 import java.util.Map;
 

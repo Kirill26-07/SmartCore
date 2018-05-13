@@ -23,7 +23,7 @@ public class Lighting extends AbstractController {
             return true;
 //            switchOn();
 // Далее необходимо запустить таймер со временем из пресетингов и если с момента последнего
-// сигнала прошло время указанное в персетинге - switchOff();
+// сигнала прошло время указанное в пресетинге - switchOff();
         } else {
             return false;
         }
